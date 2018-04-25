@@ -1,0 +1,52 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:v="sap.ui.comp"
+	xmlns:core="sap.ui.core">
+	<Page title="Customer Type">
+		<content >
+			<VBox class="sapUiSmallMargin">
+				<Table items="{modelCustData>/results}" growing="true" growingThreshold="30" growingScrollToLoad="true" growingDirection="Downwards">
+					<headerToolbar>
+						<Toolbar>
+							<Title text="State Master" level="H3"/>
+							<ToolbarSpacer/>
+							<Button icon="sap-icon://filter" press="OnPressCustomerTypeFilter" type="Emphasized" tooltip="Filter"/>
+							<Button icon="sap-icon://refresh" press="onPressResetCustomerType" type="Emphasized" tooltip="Refresh"/>
+							<Button icon="sap-icon://add" press="onPressAddCustomerType" type="Emphasized" tooltip="Add New"/>
+						</Toolbar>
+					</headerToolbar>
+					<columns>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Customer Type"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Customer Type Description"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Status"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Create Date"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Create By"/>
+						</Column>
+						<Column width="1em"/>
+						<Column width="1em"/>
+					</columns>
+					<items>
+						<ColumnListItem >
+							<cells>
+								<Text text="{modelCustData>CUST_TYPE}"/>
+								<Text text="{modelCustData>CUST_TYPE_DESC}"/>
+								<Text text="{modelCustData>SOFT_DEL}"/>
+								<Text text="{modelCustData>CREATE_DATE}"/>
+								<Text text="{modelCustData>CREATE_BY}"/>
+								<core:Icon src="sap-icon://edit" press="onEditPressCustomerType"/>
+								<core:Icon src="sap-icon://delete" press="onDeletePressCustomerType"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</VBox>
+		</content>
+	</Page>
+</core:FragmentDefinition>

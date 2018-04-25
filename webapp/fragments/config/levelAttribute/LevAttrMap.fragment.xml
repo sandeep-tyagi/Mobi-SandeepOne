@@ -1,0 +1,101 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified"
+	xmlns:f="sap.ui.layout.form" xmlns:v="sap.ui.comp" xmlns:core="sap.ui.core">
+	<Page title="Level Attribute Map">
+		<content>
+			<VBox class="sapUiSmallMargin">
+					<f:Form editable="true">
+						<f:layout>
+							<f:ResponsiveGridLayout adjustLabelSpan="true" labelSpanL="3"
+					labelSpanM="7" />
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="Level">
+										<f:fields>
+											<ComboBox placeholder="Select Level" id="cbox_Lev" items="{oModelLevel>/results}" required="true" selectedKey="{oModelLocationAtt>/ID}" selectionChange="onChangeLevelAttr">
+												<core:Item key="{oModelLevel>ID}" text="{oModelLevel>LEVEL}"/>
+											</ComboBox>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+								<f:formElements>
+									<f:FormElement label="Menu">
+										<f:fields>
+											<ComboBox placeholder="Select Menu" id="cbox_IdLevAttMenu" items="{oModelMenuSubMenu>/results}" selectionChange="onChangeMenuLevAtt"
+												required="true" >
+												<core:Item key="{oModelMenuSubMenu>MENU_ID}" text="{oModelMenuSubMenu>MENU_NAME}"/>
+											</ComboBox>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label=" ">
+										<f:fields>
+											<Button class="SubmitButton" type="Reject" icon="sap-icon://reset" text="Reset" press="RefreshData" width="100%"/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+							<!--<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label=" ">
+										<f:fields>
+											<Button class="SubmitButton" type="Reject" icon="sap-icon://reset" text="Reset" press="RefreshData" width="100%"/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>-->
+						</f:formContainers>
+					</f:Form>
+			</VBox>
+			<VBox class="sapUiSmallMargin">
+				<Table id="tableLevsubmenu" items="{oModelLevelAttTable>/results}" growing="true" growingThreshold="30" growingScrollToLoad="true"
+					growingDirection="Downwards">
+					<columns>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Sub Menu"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Create"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Edit"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Delete"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="View"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Search"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Print"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem >
+							<cells>
+								<Text text="{oModelLevelAttTable>SUBNAME}"/>
+								<CheckBox selected="{oModelLevelAttTable>INSERTCHECK}"/>
+								<CheckBox selected="{oModelLevelAttTable>EDITCHECK}"/>
+								<CheckBox selected="{oModelLevelAttTable>DELETECHECK}"/>
+								<CheckBox selected="{oModelLevelAttTable>VIEWCHECK}"/>
+								<CheckBox selected="{oModelLevelAttTable>SEARCHCHECK}"/>
+								<CheckBox selected="{oModelLevelAttTable>PRINTCHECK}"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</VBox>
+		</content>
+		<footer >
+			<Toolbar>
+				<content>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://save" type="Accept" text="Submit" press="onPressSubmitLevelAttribute"/>
+				</content>	
+			</Toolbar>
+		</footer>
+	</Page>
+</core:FragmentDefinition>

@@ -1,0 +1,33 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="Search State" beforeClose="Close" contentWidth="30%">
+		<content>
+			<VBox>
+					<f:Form editable="true" >
+						<f:layout>
+						<f:ResponsiveGridLayout/>
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement label="Country">
+									<f:fields>
+										<ComboBox placeholder="Select Country" id="cboxCountry1_StateMaster2" items="{oModelCountryFragment>/results}"
+											selectionChange="onChangeStateCountry2" required="true">
+											<core:Item key="{oModelCountryFragment>CountryCode}" text="{oModelCountryFragment>CountryName}"/>
+										</ComboBox>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button text="Search" type="Accept" icon="sap-icon://accept" press="onPressSearchState"/>
+		</beginButton>
+		<endButton>
+			<Button text="Close" type="Reject" icon="sap-icon://decline" press="onClose"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,157 @@
+{
+	"_version": "1.7.0",
+	"sap.app": {
+		"id": "MOBI",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "MOBI.view.Login",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "MOBI.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "MOBI.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"clearTarget": "false"
+			},
+			"routes": [{
+					"pattern": "",
+					"name": "Login",
+					"target": "Login"
+				}, {
+					"pattern": "Admin",
+					"name": "Admin",
+					"target": "Admin"
+				}, {
+					"pattern": "Master",
+					"name": "Master",
+					"target": "Master"
+				},
+
+				{
+					"pattern": "salesAndDelivery",
+					"name": "salesAndDelivery",
+					"target": "salesAndDelivery"
+				}, {
+					"pattern": "Configuration",
+					"name": "Configuration",
+					"target": "Configuration"
+				}, {
+					"pattern": "SalesOrderPO",
+					"name": "SalesOrderPO",
+					"target": "SalesOrderPO"
+				}, {
+					"pattern": "User",
+					"name": "User",
+					"target": "User"
+				}, {
+					"pattern": "test",
+					"name": "test",
+					"target": "test"
+				}
+
+			],
+			"targets": {
+				"Login": {
+					"viewName": "Login",
+					"viewLevel": 1
+				},
+				"Admin": {
+					"viewName": "Admin",
+					"viewLevel": 2
+				},
+				"Master": {
+					"viewName": "Master",
+					"viewLevel": 3
+				},
+				"salesAndDelivery": {
+					"viewName": "salesAndDelivery",
+					"viewLevel": 3
+				},
+				"Configuration": {
+					"viewName": "Configuration",
+					"viewLevel": 3
+				},
+				"SalesOrderPO": {
+					"viewName": "SalesOrderPO",
+					"viewLevel": 3
+				},
+				"User": {
+					"viewName": "User",
+					"viewLevel": 3
+				},
+				"test": {
+					"viewName": "test",
+					"viewLevel": 3
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	}
+}

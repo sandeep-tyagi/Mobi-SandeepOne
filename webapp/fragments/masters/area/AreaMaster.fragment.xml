@@ -1,0 +1,60 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:v="sap.ui.comp"
+	xmlns:core="sap.ui.core">
+	<Page title="Area Master">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<items>
+					<Table  id= "AreaList" items="{oModelArea>/results}" growing="true" growingThreshold="30" growingScrollToLoad="true"
+						growingDirection="Downwards">
+							<headerToolbar>
+							<Toolbar>
+								<Title text="Area Master" level="H3"/>
+								<ToolbarSpacer/>
+								<SearchField liveChange="OnPressFilterArea" width="20%"/>
+								<!--<Button icon="sap-icon://filter" visible="{oModelAttributeData>/SearchVisible}" press="OnPressFilterArea" type="Emphasized" tooltip="Filter"/>-->
+								<Button icon="sap-icon://refresh" press="onPressRefreshArea" type="Emphasized" tooltip="Refresh" />
+								<Button visible="{oModelAttributeData>/CreateVisible}" icon="sap-icon://add" press="onPressAddArea" type="Emphasized" tooltip="Add New" />
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Area Code"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Area Desc"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="District"/>
+							</Column>
+								<Column minScreenWidth="Tablet" hAlign="Center" demandPopin="true">
+								<Label text="Status" design="Bold"/>
+							</Column>
+							<Column minScreenWidth="Tablet" hAlign="Center" demandPopin="true">
+								<Label text="Created Date" design="Bold"/>
+							</Column>
+							<Column minScreenWidth="Tablet" hAlign="Center" demandPopin="true">
+								<Label text="Created By" design="Bold"/>
+							</Column>
+							<Column width="1em"/>
+							<Column width="1em"/>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{oModelArea>AREACODE}"/>
+									<Text text="{oModelArea>AREADISCRIPTTION}"/>
+									<Text text="{oModelArea>DISTRICTCODE}"/>
+									<Text text="{oModelArea>SOFT_DEL_DESC}"/>
+									<Text text="{oModelArea>DISTRICTCODE}"/>
+									<Text text="{oModelArea>DISTRICTCODE}"/>
+									<core:Icon src="sap-icon://edit" press="onEditPressArea" visible="{oModelAttributeData>/EditVisible}"/>
+									<core:Icon src="sap-icon://delete" press="onDeletePressArea" visible="{oModelAttributeData>/DeleteVisible}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</items>
+			</VBox>
+		</content>
+	</Page>
+</core:FragmentDefinition>

@@ -1,0 +1,73 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:v="sap.ui.comp"
+	xmlns:core="sap.ui.core">
+	<Page title="Customer Level Map">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<items>
+					<Table id="idTableCustLevelMap" items="{oModelCustLevelMap>/results}" growing="true" growingThreshold="30" growingScrollToLoad="true"
+						growingDirection="Downwards">
+						<headerToolbar>
+							<Toolbar>
+								<Title text="Customer Level Map" level="H3"/>
+								<ToolbarSpacer/>
+								<SearchField liveChange="OnPressCustLevMapFilter" width="20%"/>
+								<!--<Button icon="sap-icon://filter" press="OnPressCustLevMapFilter" type="Emphasized" tooltip="Filter"/>-->
+								<Button icon="sap-icon://refresh" press="onPressResetCustLevMap" type="Emphasized" tooltip="Refresh"/>
+								<Button icon="sap-icon://add" press="onPressAddCustLevMap" type="Emphasized" tooltip="Add New"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Customer Type"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Customer Type Description"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Level"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Status"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Create Date"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Create By"/>
+							</Column>
+							<Column width="1em"/>
+							<Column width="1em"/>
+						</columns>
+						<items>
+							<ColumnListItem >
+								<cells>
+									<Text text="{oModelCustLevelMap>CUST_TYPE}"/>
+									<Text text="{oModelCustLevelMap>CUST_DESC}"/>
+									<Text text="{oModelCustLevelMap>LEVEL}"/>
+									<Text text="{oModelCustLevelMap>SOFT_DEL_DESC}"/>
+									<Text text="{oModelCustLevelMap>CREATE_DATE}"/>
+									<Text text="{oModelCustLevelMap>CREATE_BY}"/>
+									<core:Icon src="sap-icon://edit" press="onEditPressCustLevMap"/>
+									<core:Icon src="sap-icon://delete" press="onDeletePressCustLevMap"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</items>
+			</VBox>
+		</content>
+		<footer >
+			<Toolbar>
+				<content>
+					<!--	<Button text="Download" id="dwnld_RoleLocMap" icon="sap-icon://download" press="onPressDownloadRoleLoc" ariaLabelledBy="actionButtonLabel"
+						visible="true"/>
+					<Button text="Sample Download" id="create_RoleLoc1" icon="sap-icon://download" press="onPressDownload" ariaLabelledBy="actionButtonLabel"
+						visible="true"/>
+					<Button text="Upload CSV" icon="sap-icon://upload" press="onPressUploadCSV"/>
+					<ToolbarSpacer/>
+					<Button press="onPressSubmit" type="Emphasized" ariaLabelledBy="actionButtonLabel" id="submitButton_1_RoleLoc" visible="false"/>-->
+				</content>
+			</Toolbar>
+		</footer>
+	</Page>
+</core:FragmentDefinition>

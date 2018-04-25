@@ -1,0 +1,60 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="Add Employee" beforeClose="Close" contentWidth="60%">
+		<content>
+			<VBox>
+				<f:SimpleForm maxContainerCols="3" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="4"
+					emptySpanXL="0" emptySpanL="0" emptySpanM="0" columnsXL="3" columnsL="2" columnsM="2" class="editableForm">
+					<f:content>
+						<core:Title text="Person Info"/>
+						<Label text="Employee Name" required="true"/>
+						<Input id="EmpName_EmployeeMaster" placeholder="Enter Employee Name" required="true"/>
+						<Label text="Address1" required="true"/>
+						<Input id="Add_EmployeeMaster" placeholder="Enter Address1" required="true"/>
+						<Label text="Address2" required="true"/>
+						<Input id="Add2_EmployeeMaster" placeholder="Enter Address2" required="true"/>
+						<Label text="Phone Number" required="true"/>
+						<Input id="PhnNo_EmployeeMaster" placeholder="Enter Phone Number" type="Number" required="true"/>
+						<Label text="Email" required="true"/>
+						<Input id="Email_EmployeeMaster" placeholder="Enter Email" required="true"/>
+						<core:Title text="Address Info"/>
+						<Label text="Country" required="true"/>
+						<ComboBox placeholder="Select Country" id="cboxCountry1_EmployeeMaster" items="{oModelCountryFragment>/results}"
+							selectionChange="onChangeCountry" required="true">
+							<core:Item key="{oModelCountryFragment>CountryCode}" text="{oModelCountryFragment>CountryName}"/>
+						</ComboBox>
+						<Label text="State" required="true"/>
+						<ComboBox placeholder="Select State" id="cboxState_EmployeeMaster" items="{oModelState>/results}"
+							selectionChange="onChangeEmployeeStateChange" required="true">
+							<core:Item key="{oModelState>StateCode}" text="{oModelState>StateName}"/>
+						</ComboBox>
+						<Label text="District"/>
+						<ComboBox placeholder="Select District" id="cboxdistrict_EmployeeMaster" items="{modelDistrictbyStateAndCountry>/results}" required="true">
+							<core:Item key="{modelDistrictbyStateAndCountry>DistrictCode}" text="{modelDistrictbyStateAndCountry>DistrictName}"/>
+						</ComboBox>
+						<Label text="Role"/>
+						<ComboBox placeholder="Select Role" id="cbox_idRoleEmployee" items="{oModelRoleEmp>/results}" selectionChange="onChangeRole" required="true">
+							<core:Item key="{oModelRoleEmp>ROLE_ID}" text="{oModelRoleEmp>ROLE_NAME}"/>
+						</ComboBox>
+						<Label text="Position" required="true"/>
+						<ComboBox placeholder="Select Position" id="cbox_idRolePositionEmployee" items="{oModelPositionEmp>/RolePosition}"
+							 required="true" selectionChange="onChangeRolePosition">
+							<core:Item key="{oModelPositionEmp>ROLE_POS_ID}" text="{oModelPositionEmp>POSITION_NAME}"/>
+						</ComboBox>
+						<!--<Input id="IdRoleLocationEmployee" value="{oModelLocationEmp>/LOCATION_NAME}"></Input>-->
+						<Label text="Position Value" required="true"/>
+						<ComboBox placeholder="Select Position Value" id="cbox_PostionValue" items="{oModelPositionValue>/results}" selectionChange="onChange"
+							required="true">
+							<core:Item key="{oModelPositionValue>CODE}" text="{oModelPositionValue>DESC}"/>
+						</ComboBox>
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button text="Submit" type="Accept" icon="sap-icon://accept" press="onPressSubmitEmp"/>
+		</beginButton>
+		<endButton>
+			<Button text="Close" type="Reject" icon="sap-icon://decline" press="onClose"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

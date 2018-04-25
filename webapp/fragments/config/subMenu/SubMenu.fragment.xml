@@ -1,0 +1,69 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:v="sap.ui.comp"
+	xmlns:core="sap.ui.core">
+	<Page  title="Sub Menu">
+		<content >
+		
+			<VBox  class="sapUiSmallMargin">
+				<items>
+					<Table  items="{oModelSub_Menu>/results}" growing="true" growingThreshold="30" growingScrollToLoad="true"
+						growingDirection="Downwards">
+						<headerToolbar>
+							<Toolbar>
+								<Title text="SubMenu" level="H3"/>
+								<ToolbarSpacer/>
+								<Button icon="sap-icon://filter" press="OnPressSubMenuFilter" type="Emphasized" tooltip="Filter"/>
+								<Button icon="sap-icon://refresh" press="onPressSubMenuReset" type="Emphasized" tooltip="Refresh"/>
+								<Button icon="sap-icon://add" press="onPressAddSubMenu" type="Emphasized" tooltip="Add New"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Menu Name"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Sub Menu Name"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Order Number"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Key"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Icon"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Status"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Create Date"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Create By"/>
+							</Column>
+							<Column width="1em"/>
+							<Column width="1em"/>
+						</columns>
+						<items>
+							<ColumnListItem >
+								<cells>
+									<Text text="{oModelSub_Menu>MENUNAME}"/>
+									<Text text="{oModelSub_Menu>SUB_MENU_NAME}"/>
+									<Text text="{oModelSub_Menu>ORDER_NO}"/>
+									<Text text="{oModelSub_Menu>KEY}"/>
+									<Text text="{oModelSub_Menu>ICON}"/>
+									<Text text="{oModelSub_Menu>SOFT_DEL}"/>
+									<Text text="{oModelSub_Menu>CREATE_DATE}"/>
+									<Text text="{oModelSub_Menu>CREATE_BY}"/>
+									<core:Icon src="sap-icon://edit" press="onEditPressSubMenu"/>
+									<core:Icon src="sap-icon://delete" press="onDeletePressSubMenu"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</items>
+			</VBox>
+		</content>
+	
+	</Page>
+</core:FragmentDefinition>

@@ -1,0 +1,108 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified"
+	xmlns:f="sap.ui.layout.form" xmlns:v="sap.ui.comp" xmlns:core="sap.ui.core">
+	<Page id="subForm_RoleLocationAttribute" title="Role Position Attribute">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<items>
+					<f:Form editable="true">
+						<f:layout>
+							<f:ResponsiveGridLayout adjustLabelSpan="true" labelSpanL="4"
+					labelSpanM="7"/>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="Role">
+										<f:fields>
+											<ComboBox placeholder="Select Role" id="cbox_idRoleAtt" items="{oModelRoleAtt>/results}" selectionChange="onChangeRole" required="true">
+												<core:Item key="{oModelRoleAtt>ROLE_ID}" text="{oModelRoleAtt>ROLE_NAME}"/>
+											</ComboBox>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Position">
+										<f:fields>
+											<ComboBox placeholder="Select Position" id="cbox_idRolePosition" items="{oModelPositionRoleAtt>/RolePosition}" required="true"
+												selectionChange="onChangeRolePositionAtt">
+												<core:Item key="{oModelPositionRoleAtt>ROLE_POS_ID}" text="{oModelPositionRoleAtt>POSITION_NAME}"/>
+											</ComboBox>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Menu">
+										<f:fields>
+											<ComboBox placeholder="Select Menu" id="cbox_IdAttMenu" items="{oModelMenuRole>/results}" selectionChange="onChangeMenuAtt" required="true">
+												<core:Item key="{oModelMenuRole>MENU_ID}" text="{oModelMenuRole>MENU_NAME}"/>
+											</ComboBox>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label=" ">
+										<f:fields>
+											<Button class="SubmitButton" type="Reject" icon="sap-icon://reset" text="Reset" press="RefreshDataRoleAttri" width="100%"/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+				</items>
+			</VBox>
+			<VBox class="sapUiSmallMargin">
+				<Table id="tableRoleLocsubmenu" items="{oModelRoleLocAttTable>/results}" growing="true" growingThreshold="30" growingScrollToLoad="true"
+					growingDirection="Downwards">
+					<columns>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Sub Menu"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Create"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Edit"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Delete"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="View"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Search"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Print"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem >
+							<cells>
+								<Text text="{oModelRoleLocAttTable>SUBNAME}"/>
+								<CheckBox selected="{oModelRoleLocAttTable>INSERTCHECK}"/>
+								<CheckBox selected="{oModelRoleLocAttTable>EDITCHECK}"/>
+								<CheckBox selected="{oModelRoleLocAttTable>DELETECHECK}"/>
+								<CheckBox selected="{oModelRoleLocAttTable>VIEWCHECK}"/>
+								<CheckBox selected="{oModelRoleLocAttTable>SEARCHCHECK}"/>
+								<CheckBox selected="{oModelRoleLocAttTable>PRINTCHECK}"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</VBox>
+		</content>
+		<footer >
+			<Toolbar>
+				<content>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://save" type="Accept" text="Submit" press="onPressSubmitRoleLocationAttribute"/>
+				</content>
+				<!--	<content>
+					<Button text="Download" id="dwnld_RoleLocMap1" icon="sap-icon://download" press="onPressDownloadRoleLoc" ariaLabelledBy="actionButtonLabel"
+						visible="true"/>
+					<Button text="Sample Download" id="create_RoleLoc" icon="sap-icon://download" press="onPressDownload" ariaLabelledBy="actionButtonLabel"
+						visible="true"/>
+					<Button text="Upload CSV" icon="sap-icon://upload" press="onPressUploadCSV"/>
+					<ToolbarSpacer/>
+					<Button press="onPressSubmit" type="Emphasized" ariaLabelledBy="actionButtonLabel" id="submitButton_1_RoleLoc" visible="false"/>
+				</content>-->
+			</Toolbar>
+		</footer>
+	</Page>
+</core:FragmentDefinition>

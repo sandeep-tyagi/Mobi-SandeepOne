@@ -1,0 +1,55 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:v="sap.ui.comp"
+	xmlns:core="sap.ui.core" xmlns:table="sap.ui.table">
+	<Page title="Users" class="sapUiContentPadding">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<Table id="IdAllUserTable" select="MultiSelect" mode="MultiSelect" items="{oModelUser>/results}">
+					<headerToolbar>
+							<Toolbar>
+								<Button class="buttonIcon" text="Employees" icon="sap-icon://employee-lookup" press="OnPressEmployees"/>
+								<Button class="buttonIcon" text="Customers" icon="sap-icon://employee" press="OnPressCustomers"/>
+								<ToolbarSpacer/>
+								<SearchField id="searchField" width="20%" placeholder="search for..." search="onPressSearchUser"/>
+						</Toolbar>
+					</headerToolbar>
+					<columns>
+						<Column minScreenWidth="Tablet" hAlign="Center" demandPopin="true">
+							<Text text="ID"/>
+						</Column>
+						<Column minScreenWidth="Tablet" hAlign="Center" demandPopin="true">
+							<Text text="Name"/>
+						</Column>
+						<Column minScreenWidth="Tablet" hAlign="Center" demandPopin="true">
+							<Text text="State"/>
+						</Column>
+						<Column minScreenWidth="Tablet" hAlign="Center" demandPopin="true">
+							<Text text="Status"/>
+						</Column>
+						<Column minScreenWidth="Tablet" hAlign="Center" demandPopin="true">
+							<Text text="Registration"/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<cells>
+							<Text text="{oModelUser>CODE}"/>
+							<Text text="{oModelUser>NAME}"/>
+							<Text text="{oModelUser>STATE}"/>
+							<Text text="{oModelUser>StatusDesc}"/>
+							<core:Icon src="sap-icon://edit" press="onPressUserRegistration"/>
+						</cells>
+					</ColumnListItem>
+				</Table>
+			</VBox>
+		</content>
+		<footer >
+			<Toolbar>
+				<content>
+					<ToolbarSpacer/>
+					<Button text="Active" icon="sap-icon://activate" press="onActiveUsers" type="Accept" ariaLabelledBy="actionButtonLabel"/>
+					<Button text="Deactive" icon="sap-icon://decline" press="onDeactiveUsers" type="Reject" ariaLabelledBy="actionButtonLabel"/>
+					<Button text="Delete" icon="sap-icon://delete" press="onDeleteUsers" type="Default" ariaLabelledBy="actionButtonLabel"/>
+				</content>
+			</Toolbar>
+		</footer>
+	</Page>
+</core:FragmentDefinition>

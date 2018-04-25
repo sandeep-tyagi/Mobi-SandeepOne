@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="Edit Details" beforeClose="BCloseCustomerTypeEdit" contentWidth="45%" afterClose="ACloseCustomerTypeEdit">
+		<content>
+			<VBox>
+				<f:SimpleForm  editable="true" layout="ResponsiveGridLayout" adjustLabelSpan="true" labelSpanL="2"
+					labelSpanM="3">
+					<f:content>
+						<Label text="CustType Id" visible="false"></Label>
+						<Input id="CustTypeIdCustomerTypeEdit" value="{oModelEdit_CustType>/CUSTOMERTYPE_ID}" visible="false"></Input>
+						<Label text="Cust Type"></Label>
+						<Input id="CustTypeCustomerTypeEdit" value="{oModelEdit_CustType>/CUST_TYPE}"></Input>
+						<Label text="CUST_TYPE_DESC"></Label>
+						<Input id="CustTypeDescCustomerTypeEdit" value="{oModelEdit_CustType>/CUST_TYPE_DESC}"></Input>
+						<Label text="Status"></Label>
+						<ComboBox placeholder="Select Status" id="cboxStatusEditCustType" value="{oModelEdit_CustType>/SOFT_DEL}" items="{CustTypeModelFragment>/items}"
+						selectionChange="onChangeStatusEditCustType" required="true">
+							<core:Item key="{CustTypeModelFragment>key}" text="{CustTypeModelFragment>text}"/>
+						</ComboBox>
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button text="Save" type="Accept" icon="sap-icon://accept" press="onDialogSaveButtonCustomerTypeEdit"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cancel" type="Reject" icon="sap-icon://sys-cancel" press="onDialogCancelButtonCustomerTypeEdit"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

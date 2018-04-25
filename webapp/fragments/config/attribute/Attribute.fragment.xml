@@ -1,0 +1,52 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:v="sap.ui.comp"
+	xmlns:core="sap.ui.core">
+	<Page title="Attribute">
+		<content >
+			<VBox class="sapUiSmallMargin">
+				<Table items="{oModelATTRIBUTE>/results}" growing="true" growingThreshold="30" growingScrollToLoad="true" growingDirection="Downwards">
+					<headerToolbar>
+						<Toolbar>
+							<Title text="Attribute" level="H3"/>
+							<ToolbarSpacer/>
+							<Button icon="sap-icon://filter" press="OnPressAttributeFilter" type="Emphasized" tooltip="Filter"/>
+							<Button icon="sap-icon://refresh" press="onPressResetAttribute" type="Emphasized" tooltip="Refresh"/>
+							<Button icon="sap-icon://add" press="onPressAddAttribute" type="Emphasized" tooltip="Add New"/>
+						</Toolbar>
+					</headerToolbar>
+					<columns>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Attribute Name"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Display"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Status"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Create Date"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Create By"/>
+						</Column>
+						<Column width="1em"/>
+						<Column width="1em"/>
+					</columns>
+					<items>
+						<ColumnListItem >
+							<cells>
+								<Text text="{oModelATTRIBUTE>ATTRIBUTE_NAME}"/>
+								<Text text="{oModelATTRIBUTE>DISPLAY}"/>
+								<Text text="{oModelATTRIBUTE>SOFT_DEL}"/>
+								<Text text="{oModelATTRIBUTE>CREATE_DATE}"/>
+								<Text text="{oModelATTRIBUTE>CREATE_BY}"/>
+								<core:Icon src="sap-icon://edit" press="onEditPressAttribute"/>
+								<core:Icon src="sap-icon://delete" press="onDeletePress_Attribute"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</VBox>
+		</content>
+	</Page>
+</core:FragmentDefinition>
