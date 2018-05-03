@@ -11,24 +11,24 @@
 							<f:formElements>
 								<f:FormElement label="Name of the firm under evaluation">
 									<f:fields>
-										<MaskInput id="DistRegis_Name" value="{oModelDistRe>/FIRM_NAME}" enabled="{Visibility>/firm}" mask="CCCCCCCCCCCCCCCCCCCCCCC"
+									<!--	<MaskInput id="DistRegis_Name" value="{oModelDistRe>/FIRM_NAME}" enabled="{Visibility>/firm}" mask="CCCCCCCCCCCCCCCCCCCCCCC"
 											placeholderSymbol=" " placeholder="Enter Name of the firm under evaluation">
 											<rules>
 												<MaskInputRule maskFormatSymbol="C" regex="[a-zA-Z]"/>
 											</rules>
-										</MaskInput>
-										<!--<Input required="true" id="DistRegis_Name" value="{oModelDistRe>/FIRM_NAME}" enabled = "{Visibility>/firm}" placeholder="Enter Name of the firm under evaluation"/>-->
+										</MaskInput>-->
+										<Input required="true" id="DistRegis_Name" value="{oModelDistRe>/FIRM_NAME}" enabled = "{Visibility>/firm}" placeholder="Enter Name of the firm under evaluation"/>
 									</f:fields>
 								</f:FormElement>
 								<f:FormElement label="Email ID">
 									<f:fields>
-										<MaskInput required="true" id="DistRegis_Email" value="{oModelDistRe>/EMAIL}" enabled="{Visibility>/mail}"
+										<!--<MaskInput required="true" id="DistRegis_Email" value="{oModelDistRe>/EMAIL}" enabled="{Visibility>/mail}"
 											mask="CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC" placeholderSymbol=" " placeholder="Enter Email">
 											<rules>
 												<MaskInputRule maskFormatSymbol="C" regex="/^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/"/>
 											</rules>
-										</MaskInput>
-										<!--<Input required="true" id="DistRegis_Email" value="{oModelDistRe>/EMAIL}" enabled = "{Visibility>/mail}" placeholder="Enter Email"/>-->
+										</MaskInput>-->
+										<Input required="true" id="DistRegis_Email" value="{oModelDistRe>/EMAIL}" enabled = "{Visibility>/mail}" placeholder="Enter Email"/>
 									</f:fields>
 								</f:FormElement>
 								<f:FormElement label="Remarks">

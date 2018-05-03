@@ -6,6 +6,45 @@
 .SubmitButton {
 	padding-left: 18rem;
 }
+.sapMIBar-CTX .sapMLabel {
+    color: white;
+}
+
+.sapMIBar-CTX .sapMBtnTransparent:not(.sapMBtnDisabled):not(.sapMToggleBtnPressed) {
+    color: white;
+    text-shadow: none;
+    border-color: transparent;
+}
+:not(.sapMBtnDisabled) .sapMBtnTransparent>.sapMBtnIcon, :not(.sapMBtnDisabled) .sapMBtnGhost>.sapMBtnIcon {
+     color: white; 
+}
+.sapMPopover.sapMPopoverWithoutBar .sapMPopoverCont, .sapMPopover .sapMIBar.sapMHeader-CTX {
+    border-top-right-radius: 0.25rem;
+    border-top-left-radius: 0.25rem;
+    background-color: lightblue;
+}
+.Home .sapMBtnIcon {
+    font-size: 1.375rem;
+    line-height: 2.375rem;
+    width: 2.375rem;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    max-height: 2.375rem;
+    color: white;
+}
+.HeaderText .sapMText {
+    display: inline-block;
+    box-sizing: border-box;
+    white-space: pre-line;
+    word-wrap: break-word;
+    cursor: text;
+    font-size: 0.875rem;
+    font-family: "72",Arial,Helvetica,sans-serif;
+    line-height: normal;
+    color: White;
+}
 .sapMBar {
     display: block;
     width: 100%;

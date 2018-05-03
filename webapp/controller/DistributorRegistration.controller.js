@@ -19,15 +19,40 @@ sap.ui.define([
 		 * @memberOf MOBI.view.DistributorRegistration
 		 */
 		onInit: function() {
+			
 			this.getDistributorRegistration();
+			this.byId("UserCode").setText(oStorage.get("USER_CODE"));
+			this.byId("UserName").setText(oStorage.get("USER_CODE"));
+		},
+		onPressLogout: function(){
+			this.byId("UserCode").setText(oStorage.get(""));
+			this.byId("UserName").setText(oStorage.get(""));
+			this.getRouter().navTo("Login");
+			var Backlen = history.length;   
+    		history.go(-Backlen);  
+    		window.location.href = "https://webidetesting3149674-a0dc2b6c6.dispatcher.hana.ondemand.com/webapp/index.html?hc_orionpath=%2Fa0dc2b6c6%24S0018901780-OrionContent%2Fmobi&origional-url=index.html&sap-ui-appCacheBuster=..%2F&sap-ui-xx-componentPreload=off";
+    		windows.history.clear();
+		},
+			getRouter: function() {
+			return sap.ui.core.UIComponent.getRouterFor(this);
 		},
 		onPressResetDistRegis: function() {
 			this.getDistributorRegistration();
 		},
+		onPressHomeButton: function() {
+			var oHistory, sPreviousHash;
+			oHistory = sap.ui.core.routing.History.getInstance();
+			sPreviousHash = oHistory.getPreviousHash();
+			if (sPreviousHash !== undefined) {
+
+				window.history.go(-1);
+
+			}
+		},
 		getDistributorRegistration: function() {
 			busyDialog.open();
 			var that = this;
-			var surl = "/xsService/MobiAPI/dbr/InitiateDSTB.xsjs?cmd=getDBRRegistrations";
+			var surl = "/xsService/MobiAPI/dbr/InitiateDSTB.xsjs?cmd=getDBRRegistrations&CREATE_BY=" + oStorage.get("USER_CODE");
 			$.ajax({
 				url: surl,
 				type: "GET",
@@ -180,18 +205,17 @@ sap.ui.define([
 				busyDialog.close();
 				flag = true;
 			}
-			/*else {
+			else {
 				var data = this.getView().getModel("oModelDistrRegis").getData();
 				for (var i = 0; i < data.results.length; i++) {
-					if (data.results[i].LEVEL_ID === record.FramName && data.results[i].PARENT_ID === record.parent && data.results[i].SOFT_DEL ===
-						"1") {
+					if ((data.results[i].EMAIL).toUpperCase() === (record.Email).toUpperCase()) {
 						sap.m.MessageBox.show("This mapping is Already exist.", sap.m.MessageBox
 							.Icon.ERROR, "Error");
 						busyDialog.close();
 						flag = true;
 					} 
 				}
-			}*/
+			}
 			if (flag === false) {
 				return record;
 			}

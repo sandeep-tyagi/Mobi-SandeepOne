@@ -16,11 +16,20 @@ sap.ui.define([
 		 * @memberOf MOBI.view.Admin
 		 */
 		onInit: function() {
-			this.byId("UserCode").setText(oStorage.get("Cust_Code"));
-			this.byId("UserName").setText(oStorage.get("USER_NAME"));
+			this.byId("UserCode").setText(oStorage.get("USER_CODE"));
+			this.byId("UserName").setText(oStorage.get("USER_CODE"));
 			var eventBus = sap.ui.getCore().getEventBus();
 
 			eventBus.subscribe("Admin", "onNavigateEvent", this.onDataReceived, this);
+		},
+		onPressLogout: function(){
+			this.byId("UserCode").setText(oStorage.get(""));
+			this.byId("UserName").setText(oStorage.get(""));
+			this.getRouter().navTo("Login");
+			var Backlen = history.length;   
+    		history.go(-Backlen);  
+    		window.location.href = "https://webidetesting3149674-a0dc2b6c6.dispatcher.hana.ondemand.com/webapp/index.html?hc_orionpath=%2Fa0dc2b6c6%24S0018901780-OrionContent%2Fmobi&origional-url=index.html&sap-ui-appCacheBuster=..%2F&sap-ui-xx-componentPreload=off";
+    		windows.history.clear();
 		},
 		onPressApproval: function(){
 		this.getRouter().navTo("Approval");	

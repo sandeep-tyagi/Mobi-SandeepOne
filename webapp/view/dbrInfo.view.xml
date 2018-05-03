@@ -11,7 +11,7 @@
 									<items>
 										<f:Form id="FormChange354" editable="true">
 											<f:layout>
-												<f:ResponsiveGridLayout/>
+												<f:ResponsiveGridLayout labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1"/>
 											</f:layout>
 											<f:formContainers>
 												<f:FormContainer>

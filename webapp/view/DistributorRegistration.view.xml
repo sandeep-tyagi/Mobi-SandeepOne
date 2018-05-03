@@ -3,6 +3,36 @@
 	<App>
 		<pages>
 			<Page title="">
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Button width="50px" class = "Home" icon="sap-icon://home" press="onPressHomeButton"/>
+						</contentLeft>
+						<contentMiddle>
+							<Label text="Initiate Distributor" width="100%" class="myTitleLabel headertext"/>
+						</contentMiddle>
+						<contentRight>
+							<OverflowToolbar id="otb3" class = "HeaderText">
+								<Text id="UserCode" class="HeaderText"></Text>
+								<Button type="Transparent" id="UserName" icon="sap-icon://person-placeholder" text="">
+									<layoutData>
+										<OverflowToolbarLayoutData priority="AlwaysOverflow"/>
+									</layoutData>
+								</Button>
+								<Button type="Transparent" id="btnChange" icon="sap-icon://reset" text="Change Password" press="_OnchangePassword">
+									<layoutData>
+										<OverflowToolbarLayoutData priority="AlwaysOverflow"/>
+									</layoutData>
+								</Button>
+								<Button width="50px" id="__button0" icon="sap-icon://log" press="onPressLogout">
+									<layoutData>
+										<OverflowToolbarLayoutData priority="AlwaysOverflow"/>
+									</layoutData>
+								</Button>
+							</OverflowToolbar>
+						</contentRight>
+					</Bar>
+				</customHeader>
 				<content>
 					<Table id = "IdTableDistributorRegis" items="{oModelDistrRegis>/results}" growing="true" growingThreshold="30" growingScrollToLoad="true"
 						growingDirection="Downwards">
