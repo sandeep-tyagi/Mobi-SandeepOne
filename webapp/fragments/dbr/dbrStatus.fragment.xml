@@ -1,0 +1,347 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="DBR REGISTRATION FORM" beforeClose="Close" contentWidth="80%">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<items>
+					<f:Form editable="false">
+						<f:layout>
+							<f:ResponsiveGridLayout/>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:toolbar>
+									<Toolbar>
+										<Title text="Distributor Profile" level="H5" titleStyle="H5"/>
+										<ToolbarSpacer/>
+									</Toolbar>
+								</f:toolbar>
+								<f:formElements>
+									<f:FormElement label="DBR Form No.">
+										<f:fields>
+											<Text text="{modelCustDataRefresh>/AttributeId}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Name of the firm under evaluation">
+										<f:fields>
+											<Text text="{oModelGetDBR>/FIRM_NAME}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Nature of Premises">
+										<f:fields>
+											<Text text="{modelCustDataRefresh>/AttributeId}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Locality">
+										<f:fields>
+											<Text text="{oModelGetDBR>/LOCALITY}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="City/District">
+										<f:fields>
+											<Text text="{oModelGetDBR>/CITY_DISTRICT}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Postal Code">
+										<f:fields>
+											<Text text="{oModelGetDBR>/POSTAL_CODE}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Office Space">
+										<f:fields>
+											<Text text="{oModelGetDBR>/OFFICE_SPACE}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Name of Contact Information">
+										<f:fields>
+											<Text text="{modelCustDataRefresh>/AttributeId}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Designation of person">
+										<f:fields>
+											<Text text="{modelCustDataRefresh>/AttributeId}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Company profile">
+										<f:fields>
+											<Text text="{oModelGetDBR>/COMPANY_PROFILE}"/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+							<f:FormContainer>
+			                       <f:toolbar>
+									<Toolbar>
+										<Title  level="H5" titleStyle="H5"/>
+										<ToolbarSpacer/>
+									</Toolbar>
+								</f:toolbar>
+									<f:formElements>
+									<f:FormElement label="Nature">
+										<f:fields>
+											<Text text="{oModelGetDBR>/NATURE}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Premisi No.">
+										<f:fields>
+											<Text text="{oModelGetDBR>/PREMISES_NO}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Town/Village">
+										<f:fields>
+											<Text text="{oModelGetDBR>/TOWN_VILL}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="State">
+										<f:fields>
+											<Text text="{oModelGetDBR>/STATE}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Email ID">
+										<f:fields>
+											<Text text="{oModelGetDBR>/EMAIL}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Warehouse Space">
+										<f:fields>
+											<Text text="{oModelGetDBR>/WAREHOUSE_SPACE}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Contact Person's Mobile No.">
+										<f:fields>
+											<Text text="{oModelGetDBR>/CONTACT_PERSON_MOBILE}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="CIN Number">
+										<f:fields>
+											<Text text="{oModelGetDBR>/CIN_NUMBER}"/>
+										</f:fields>
+									</f:FormElement>
+
+								</f:formElements>
+								
+							</f:FormContainer>
+							<f:FormContainer>
+								<f:toolbar>
+									<Toolbar>
+										<Title text="Legal Information" level="H5" titleStyle="H5"/>
+										<ToolbarSpacer/>
+									</Toolbar>
+								</f:toolbar>
+								<f:formElements>
+									<f:FormElement label="PAN No.">
+										<f:fields>
+											<Text text="{oModelGetDBR>/PAN_NUMBER}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="TAN No.">
+										<f:fields>
+											<Text text="{oModelGetDBR>/TAN_NUMBER}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="GSTIN No.">
+										<f:fields>
+											<Text text="{oModelGetDBR>/GSTIN_NUMBER}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Bank Account No">
+										<f:fields>
+											<Text text="{oModelGetDBR>/BANK_ACCOUNT_NUMBER}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="IFSC Code">
+										<f:fields>
+											<Text text="{oModelGetDBR>/IFSC_CODE}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="MOA of Co">
+										<f:fields>
+											<Text text="{oModelGetDBR>/MOA_COMPANY}"/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+							<f:FormContainer>
+								<f:toolbar>
+									<Toolbar>
+										<Title text="" level="H5" titleStyle="H5"/>
+										<ToolbarSpacer/>
+									</Toolbar>
+								</f:toolbar>
+								<f:formElements>
+									<f:FormElement label="PAN No. Attachment">
+										<f:fields>
+											<Text text="{modelCustDataRefresh>/AttributeId}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="TAN  No. Attachment">
+										<f:fields>
+											<Text text="{modelCustDataRefresh>/AttributeId}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="GSTIN Certificate">
+										<f:fields>
+											<Text text="{modelCustDataRefresh>/AttributeId}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Cancelled cheque attachment">
+										<f:fields>
+											<Text text="{modelCustDataRefresh>/AttributeId}"/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+						<Table  items="{oModelGetDBR>/results}">
+							<headerToolbar>
+						      <Toolbar>
+								<Title text="Current Bussiness Profile" level="H5" titleStyle="H5"/>
+								<ToolbarSpacer/>
+							  </Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column minScreenWidth="Tablet" hAlign="Center" demandPopin="true">
+									<Text text="Company's name"/>
+								</Column>
+								<Column minScreenWidth="Tablet" hAlign="Center" demandPopin="true">
+									<Text text="Associated from date"/>
+								</Column>
+								<Column minScreenWidth="Tablet" hAlign="Center" demandPopin="true">
+									<Text text="Industry Category"/>
+								</Column>
+								<Column minScreenWidth="Tablet" hAlign="Center" demandPopin="true">
+									<Text text="Last 3 month's Avg. Turnover"/>
+								</Column>
+							</columns>
+							<ColumnListItem>
+								<cells>
+									<Text text="{oModelGetDBR>COMPANY_NAME}"/>
+									<Text text="{oModelGetDBR>ASSOCIATED_FROM_DATE}"/>
+									<Text text="{oModelGetDBR>INDUSTRY_CATEGORY}"/>
+									<Text text="{oModelGetDBR>TURNOVER_LAST_THREE_MONTH}"/>
+						
+								</cells>
+							</ColumnListItem>
+						</Table>
+					<f:Form editable="false">
+						<f:layout>
+							<f:ResponsiveGridLayout/>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:toolbar>
+									<Toolbar>
+										<Title text="Investment details" level="H5" titleStyle="H5"/>
+										<ToolbarSpacer/>
+									</Toolbar>
+								</f:toolbar>
+								<f:formElements>
+									<f:FormElement label="Current Investment">
+										<f:fields>
+											<Text text="{oModelGetDBR>/CURRENT_INVESTMENT}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Bank Loan">
+										<f:fields>
+											<Text text="{oModelGetDBR>/BANK_LOAN}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Bank Limit">
+										<f:fields>
+											<Text text="{oModelGetDBR>/BANK_LIMIT}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Current Account No">
+										<f:fields>
+											<Text text="{oModelGetDBR>/CURRENT_ACCOUNT_NUMBER}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Financial Statement Last 3 yrs">
+										<f:fields>
+											<Text text="{oModelGetDBR>/FIN_STMT_LAST_THREE_MONTH}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Income Tax Returns">
+										<f:fields>
+											<Text text="{oModelGetDBR>/INCOME_TAX_RETURN}"/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						<f:FormContainer>
+								<f:toolbar>
+									<Toolbar>
+										<Title text="" level="H5" titleStyle="H5"/>
+										<ToolbarSpacer/>
+									</Toolbar>
+								</f:toolbar>
+								<f:toolbar>
+									<Toolbar>
+										<Title text="" level="H5" titleStyle="H5"/>
+										<ToolbarSpacer/>
+									</Toolbar>
+								</f:toolbar>
+								<f:formElements>
+									<f:FormElement label="Bank Name">
+										<f:fields>
+											<Text text="{oModelGetDBR>/BANK_NAME}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Bank Name">
+										<f:fields>
+											<Text text="{oModelGetDBR>/BANK_NAME}"/>
+										</f:fields>
+									</f:FormElement>
+							
+									<f:FormElement label="Last 6 month Bank Statement">
+										<f:fields>
+											<Text text="{oModelGetDBR>/BANK_STMT_LAST_SIX_MONTH}"/>
+										</f:fields>
+									</f:FormElement>
+								
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+					    <Table  items="{oModelGetDBR>/results}">
+							<headerToolbar>
+						      <Toolbar>
+								<Title text="FOS Details" level="H5" titleStyle="H5"/>
+								<ToolbarSpacer/>
+							  </Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column minScreenWidth="Tablet" hAlign="Center" demandPopin="true">
+									<Text text="Name"/>
+								</Column>
+								<Column minScreenWidth="Tablet" hAlign="Center" demandPopin="true">
+									<Text text="ID Proof"/>
+								</Column>
+								<Column minScreenWidth="Tablet" hAlign="Center" demandPopin="true">
+									<Text text="Bank Account No."/>
+								</Column>
+								<Column minScreenWidth="Tablet" hAlign="Center" demandPopin="true">
+									<Text text="IFSC Code"/>
+								</Column>
+							</columns>
+							<ColumnListItem>
+								<cells>
+									<Text text="{oModelGetDBR>FIRM_NAME}"/>
+									<Text text="{oModelGetDBR>STATUS}"/>
+									<Text text="{oModelGetDBR>CREATE_DATE}"/>
+									<Text text="{oModelGetDBR>CREATE_BY}"/>
+									<core:Icon src="sap-icon://edit" press="onPressUserRegistration"/>
+								</cells>
+							</ColumnListItem>
+						</Table>
+				</items>
+			</VBox>
+		</content>
+		<!--<beginButton>-->
+		<!--	<Button text="Submit" type="Accept" icon="sap-icon://accept" press="onPressSubmitAttribute"/>-->
+		<!--</beginButton>-->
+		<endButton>
+			<Button text="Close" type="Reject" icon="sap-icon://decline" press="onClose"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

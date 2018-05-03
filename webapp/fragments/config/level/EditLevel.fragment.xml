@@ -1,0 +1,52 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="Edit Level" beforeClose="BCloseLevelEdit" contentWidth="45%" afterClose="ACloseLevelEdit">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<items>
+					<f:Form editable="true">
+						<f:layout>
+							<f:ResponsiveGridLayout/>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement >
+										<f:fields>
+											<Label text="Level Id" visible="false"></Label>
+						<Input id="levelIdLevelEdit" value="{oModelEditLevel>/ID}" visible="false"></Input>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement >
+										<f:fields>
+											<Label text="Level Name"></Label>
+						<!--<Input id="levelNameLevelEdit" value="{oModelEditLevel>/LEVEL}"></Input>-->
+							<MaskInput id="levelNameLevelEdit"  value="{oModelEditLevel>/LEVEL}"  mask="CCCCCCCCCCCCCCCCCCCCCCCCC" placeholderSymbol=" " placeholder="" >
+											<rules>
+												<MaskInputRule maskFormatSymbol="C" regex="[a-zA-Z0-9]"/>
+											</rules>
+										</MaskInput>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Status">
+										<f:fields>
+											<ComboBox placeholder="Select Status " value="{oModelEditLevel>/SOFT_DEL_DESC}" id="levelCboxStatus" items="{levelModelFragment>/items}"
+												selectionChange="onChangeStatus" required="true">
+												<core:Item key="{levelModelFragment>SOFT_DEL}" text="{levelModelFragment>SOFT_DEL_DESC}"/>
+											</ComboBox>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+				</items>
+			</VBox>
+		</content>
+		<beginButton>
+	<Button text="Save" type="Accept" icon="sap-icon://accept" press="onDialogSaveButtonLevelEdit"/>
+		</beginButton>
+		<endButton>
+	<Button text="Cancel" type="Reject" icon="sap-icon://sys-cancel" press="onDialogCancelButtonLevelEdit"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

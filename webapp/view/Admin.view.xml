@@ -1,0 +1,281 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="MOBI.controller.Admin"
+	xmlns:c="sap.suite.ui.microchart" xmlns:f="sap.ui.layout.form" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:viz="sap.viz.ui5.controls"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:viz.data="sap.viz.ui5.data" xmlns:l="sap.ui.layout">
+	<App>
+		<pages>
+			<Page id="TilePage">
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Image src="/img/logo.png" width="90px" class="headerIcon"/>
+						</contentLeft>
+						<contentMiddle>
+							<Text text="Admin Dashboard" class="headerText"/>
+						</contentMiddle>
+						<contentRight class="headerIcon">
+							<OverflowToolbar id="otb3">
+								<!--<Label text="Welcome:"/>-->
+								<Button type="Transparent" id="UserCode" icon="sap-icon://account" text=""/>
+								<Button type="Transparent" id="UserName" icon="sap-icon://person-placeholder" text="">
+									<layoutData>
+										<OverflowToolbarLayoutData priority="AlwaysOverflow"/>
+									</layoutData>
+								</Button>
+								<Button type="Transparent" id="btnChange" icon="sap-icon://reset" text="Change Password" press="_OnchangePassword">
+									<layoutData>
+										<OverflowToolbarLayoutData priority="AlwaysOverflow"/>
+									</layoutData>
+								</Button>
+								<Button width="50px" id="__button0" icon="sap-icon://log" press="onPressLogout">
+									<layoutData>
+										<OverflowToolbarLayoutData priority="AlwaysOverflow"/>
+									</layoutData>
+								</Button>
+							</OverflowToolbar>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<Panel>
+						<headerToolbar>
+							<Toolbar height="3rem">
+								<Title text="Welcome"/>
+								<ToolbarSpacer/>
+							</Toolbar>
+						</headerToolbar>
+						<content>
+							<l:HorizontalLayout id="containerLayout" class="sapUiSmallMargin">
+								<VBox>
+									<SlideTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout">
+										<tiles>
+											<GenericTile backgroundImage="/img/n1.jpg" frameType="TwoByOne" class="bg" press="pressOnTileOne" visible="true">
+												<tileContent>
+													<TileContent></TileContent>
+												</tileContent>
+											</GenericTile>
+											<GenericTile backgroundImage="/img/pic3.jpg" frameType="TwoByOne" class="bg" press="pressOnTileOne" visible="true">
+												<tileContent>
+													<TileContent></TileContent>
+												</tileContent>
+											</GenericTile>
+											<GenericTile backgroundImage="/img/img07.jpg" frameType="TwoByOne" class="bg" press="pressOnTileOne" visible="true">
+												<tileContent>
+													<TileContent></TileContent>
+												</tileContent>
+											</GenericTile>
+											<GenericTile backgroundImage="/img/cliQ2.jpg" frameType="TwoByOne" class="bg" press="pressOnTileOne" visible="true">
+												<tileContent>
+													<TileContent>
+														<content></content>
+													</TileContent>
+												</tileContent>
+											</GenericTile>
+											<GenericTile backgroundImage="/img/CliqPoster1.jpg" frameType="TwoByOne" class="bg" press="pressOnTileOne" visible="true">
+												<tileContent>
+													<TileContent>
+														<content></content>
+													</TileContent>
+												</tileContent>
+											</GenericTile>
+										</tiles>
+									</SlideTile>
+								</VBox>
+							</l:HorizontalLayout>
+						</content>
+					</Panel>
+					<Panel width="auto" class="sapUiResponsiveMargin" id = "IdReportPanel">
+						<headerToolbar>
+							<Toolbar height="3rem">
+								<Title text="Report"/>
+								<ToolbarSpacer/>
+							</Toolbar>
+						</headerToolbar>
+					</Panel>
+					<!--<Panel width="auto" class="sapUiResponsiveMargin">
+						<headerToolbar>
+							<Toolbar height="3rem">
+								<Title text="Report"/>
+								<ToolbarSpacer/>
+							</Toolbar>
+						</headerToolbar>
+						<content>
+							<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="User" press="OnPressUser"
+								>
+								<tileContent>
+									<TileContent footer="User Related data maintain">
+										<content>
+											<ImageContent src="sap-icon://target-group"/>
+										</content>
+									</TileContent>
+								</tileContent>
+							</GenericTile>
+							<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Master" press="OnPressMaster"
+								>
+								<tileContent>
+									<TileContent footer="Current Quarter Only">
+										<content>
+											<ImageContent src="sap-icon://target-group"/>
+										</content>
+									</TileContent>
+								</tileContent>
+							</GenericTile>
+							<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Sales Description" press="onPressSales" visible="true"
+								frameType="OneByOne">
+								<tileContent>
+									<TileContent footer="Number of sub tiles" size="S">
+										<content>
+											<NumericContent size="S" value="5" scale="M" valueColor="Error" indicator="Up"/>
+										</content>
+									</TileContent>
+								</tileContent>
+							</GenericTile>
+							<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Distributor Registration" press="onPressDistributorRegistration"
+								visible="true">
+								<tileContent >
+									<TileContent footer="Current Quarter">
+										<content>
+											<ImageContent src="BackgroundImage/ageing.png"/>
+										</content>
+									</TileContent>
+								</tileContent>
+							</GenericTile>
+							<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Configuration" press="onPressConfiguration"
+								 frameType="OneByOne">
+								<tileContent>
+									<TileContent footer="Number of sub tiles" size="S">
+										<content>
+											<NumericContent size="S" value="7" scale="M" valueColor="Error" indicator="Up"/>
+										</content>
+									</TileContent>
+								</tileContent>
+							</GenericTile>
+							<SlideTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout Tilefooter" visible="true">
+								<tiles>
+									<GenericTile backgroundImage="image/images.jpg" frameType="TwoByOne" press="onPressEquipmentHistory">
+										<TileContent id="orderViewfooter">
+											<NewsContent contentText="Equipment Deliveries By Stockists" subheader=""></NewsContent>
+										</TileContent>
+									</GenericTile>
+									<GenericTile backgroundImage="image/image1.jpg" frameType="TwoByOne" press="onPressEquipmentHistory">
+										<TileContent id="orderViewfooter1">
+											<NewsContent contentText="Equipment Deliveries By Stockists" subheader=""></NewsContent>
+										</TileContent>
+									</GenericTile>
+								</tiles>
+							</SlideTile>
+							<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Approval New" press="onPressApprovalNew"
+								visible="{oModelUserVisibility>/ConfigurationVisible}" frameType="OneByOne">
+								<tileContent>
+									<TileContent footer="Number of sub tiles" size="S">
+										<content>
+											<NumericContent size="S" value="4" scale="M" valueColor="Error" indicator="Up"/>
+										</content>
+									</TileContent>
+								</tileContent>
+							</GenericTile>
+							<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Comparative Stock" press="onPressStock" visible="true"
+								subheader="By Saler" size="S" frameType="OneByOne">
+								<tileContent>
+									<TileContent footer="Compare across saler" size="S">
+										<content>
+											<c:ComparisonMicroChart>
+												<c:data>
+													<c:ComparisonMicroChartData title="Celkon" value="{ViewsStock>/results/0/CelkonStock}" color="Good"></c:ComparisonMicroChartData>
+													<c:ComparisonMicroChartData title="Stockiest" value="{ViewsStock>/results/0/StockistStock}" color="Error"></c:ComparisonMicroChartData>
+													<c:ComparisonMicroChartData title="Distributor" value="{ViewsStock>/results/0/DistributorStock}" color="Critical"></c:ComparisonMicroChartData>
+												</c:data>
+											</c:ComparisonMicroChart>
+										</content>
+									</TileContent>
+								</tileContent>
+							</GenericTile>
+							<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Reports" press="onPressReports"
+								visible="{oModelUserVisibility>/ReportsVisible}">
+								<tileContent>
+									<TileContent unit="Unit" footer="Current Quarter">
+										<content>
+											<NumericContent value="5" icon="BackgroundImage/ViewOrders.png"/>
+										</content>
+									</TileContent>
+								</tileContent>
+							</GenericTile>
+							<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Sales/Deliveries" press="onPressSalesDelivery"
+								visible="{oModelUserVisibility>/SalesVisible}">
+								<tileContent>
+									<TileContent>
+										<content>
+											<ImageContent src="sap-icon://target-group"/>
+										</content>
+									</TileContent>
+								</tileContent>
+							</GenericTile>
+							<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Manage Customers" press="onPressManageCustomer"
+								frameType="OneByOne" visible="true">
+								<tileContent>
+									<TileContent footer="New Notifications">
+										<content>
+											<FeedContent contentText="In this mantain login customer wise data.According to Login customer criteria."
+												subheader="Till now data is visible" value="7"/>
+										</content>
+									</TileContent>
+								</tileContent>
+							</GenericTile>
+							<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Schemes" press="onPressSchemeM"
+								subheader="Points,Commission and Free goods" visible="true">
+								<tileContent>
+									<TileContent>
+										<content>
+											<ImageContent src="BackgroundImage/schemes.png"/>
+										</content>
+									</TileContent>
+								</tileContent>
+							</GenericTile>
+							<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Total Primary Vs Tertiary sale" subheader="Till Now"
+								frameType="TwoByOne" state="Loaded" press="PressAnaliticalPSST" id="standTileChart">
+								<tileContent>
+									<TileContent footer="Current vs previous" frameType="TwoByOne">
+										<content>
+											<c:DeltaMicroChart value1="{ViewsPrimaryVsTit>/results/0/Primary}" value2="{ViewsPrimaryVsTit>/results/0/Tertiary}" title1="Primary"
+												title2="Tertiary" displayValue1="{ViewsPrimaryVsTit>/results/0/Primary}" displayValue2="{ViewsPrimaryVsTit>/results/0/Tertiary}"
+												deltaDisplayValue="{ViewsPrimaryVsTit>/results/0/Diffrence}" color="Good"/>
+										</content>
+									</TileContent>
+								</tileContent>
+							</GenericTile>
+							<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Upload Data" subheader="Upload Price and Master"
+								press="onPressUpload" visible="true">
+								<tileContent>
+									<TileContent footer="Current Quarter">
+										<content>
+											<ImageContent src="sap-icon://target-group"/>
+										</content>
+									</TileContent>
+								</tileContent>
+							</GenericTile>
+							<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Graph" subheader="Data Display in graph"
+								press="onPressGraph" visible="true">
+								<tileContent>
+									<TileContent unit="Unit" footer="Current Quarter Top 10">
+										<content>
+											<NumericContent value="10" icon="sap-icon://business-objects-experience" valueColor="Critical"/>
+										</content>
+									</TileContent>
+								</tileContent>
+							</GenericTile>
+							<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Sales and PO Genrate" press="onPressSalesAndPO"
+								visible="true">
+								<tileContent >
+									<TileContent footer="Current Quarter">
+										<content>
+											<ImageContent src="BackgroundImage/ageing.png"/>
+										</content>
+									</TileContent>
+								</tileContent>
+							</GenericTile>
+						</content>
+					</Panel>-->
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

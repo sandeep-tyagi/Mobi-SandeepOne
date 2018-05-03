@@ -1,0 +1,41 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="Search Customer Type" beforeClose="Close" contentWidth="30%">
+		<content>
+			<VBox>
+				<f:Form editable="true">
+					<f:layout>
+						<f:ResponsiveGridLayout/>
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="Cust Type">
+										<f:fields>
+											<ComboBox placeholder="Select Cust Type" id="cboxCustTypeSearchCustLevMap" items="{oModelCustLevelMap>/results}" selectionChange="onChangeCustTypeSearchCustLevMap"
+												required="true">
+												<core:Item key="{oModelCustLevelMap>CUSTOMERTYPE_ID}" text="{oModelCustLevelMap>CUST_TYPE}"/>
+											</ComboBox>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Level">
+										<f:fields>
+											<ComboBox placeholder="Select Level" id="cboxLevelSearchCustLevMap" items="{oModelCustLevelMap>/results}" selectionChange="onChangeLevelSearchCustLevMap"
+												required="true">
+												<core:Item key="{oModelCustLevelMap>LEVEL_ID}" text="{oModelCustLevelMap>LEVEL}"/>
+											</ComboBox>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button text="Search" type="Accept" icon="sap-icon://accept" press="onPressSearchCustLevMap"/>
+		</beginButton>
+		<endButton>
+			<Button text="Close" type="Reject" icon="sap-icon://decline" press="onClose"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

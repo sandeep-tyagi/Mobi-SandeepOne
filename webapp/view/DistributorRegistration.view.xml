@@ -1,0 +1,51 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="MOBI.controller.DistributorRegistration"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="">
+				<content>
+					<Table id = "IdTableDistributorRegis" items="{oModelDistrRegis>/results}" growing="true" growingThreshold="30" growingScrollToLoad="true"
+						growingDirection="Downwards">
+							<headerToolbar>
+							<Toolbar>
+								<Title text="Distributor Registration" level="H3"/>
+								<ToolbarSpacer/>
+								<SearchField liveChange="OnPressDistrRegisFilterNew" width="20%"/>
+								<Button icon="sap-icon://refresh" press="onPressResetDistRegis" type="Emphasized" tooltip="Refresh"/>
+								<Button icon="sap-icon://add" press="onPressAddDistRegis" type="Emphasized" tooltip="Add New"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="SR No."/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="DBR Code"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Name of Firm"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Create Date"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Create By"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem >
+								<cells>
+									<Text text="{oModelDistrRegis>SerialNo}"/>
+									<!--<Text text="{oModelDistrRegis>DBR_FORM_ID}"/>--><Link text="{oModelDistrRegis>DBR_FORM_ID}" press="handleLinkDistrregis"/>
+									<Text text="{oModelDistrRegis>FIRM_NAME}"/>
+									<Text text="{oModelDistrRegis>CREATE_DATE}"/>
+									<Text text="{oModelDistrRegis>CREATE_BY}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,41 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="Add Role Position Map" beforeClose="Close" contentWidth="30%">
+		<content>
+			<VBox>
+				<f:Form editable="true">
+					<f:layout>
+						<f:ResponsiveGridLayout/>
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="Role Name">
+										<f:fields>
+											<ComboBox placeholder="Select Role Position" id="cboxRoleNameRoleLocMap" items="{oModelRole>/results}" 
+												required="true">
+												<core:Item key="{oModelRole>ROLEID}" text="{oModelRole>ROLENAME}"/>
+											</ComboBox>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Position Name">
+										<f:fields>
+											<ComboBox placeholder="Select Position Name" id="cboxLocNameRoleLocMap" items="{path: 'oModelPosition>/results'}" selectionChange="onChangeLocNameRoleLocMap"
+												required="true">
+												<core:Item key="{oModelPosition>POSITION_ID}" text="{oModelPosition>POSITION_NAME}"/>
+											</ComboBox>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button text="Submit" type="Accept" icon="sap-icon://accept" press="onPressSubmitRolePosMap"/>
+		</beginButton>
+		<endButton>
+			<Button text="Close" type="Reject" icon="sap-icon://decline" press="onClose"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

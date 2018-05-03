@@ -1,0 +1,32 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="Edit Level Hierarchy Details" beforeClose="BCloseLevelHierarchyEdit" contentWidth="60%" afterClose="ACloseLevelHierarchyEdit">
+		<content>
+			<VBox>
+				<f:SimpleForm editable="true" layout="ResponsiveGridLayout" adjustLabelSpan="true" labelSpanL="3"
+					labelSpanM="3">
+					<f:content>
+						<Label text="LevelHierarchy Id" visible="false"></Label>
+						<Input id="LevLevHierEdit" value="{oModelEditLevelHierarchy>/ID}" visible="false"></Input>
+						<ComboBox placeholder=" Select Level " id="IdLevelHierarchyedit" 
+							items="{modelDataLevel>/results}" selectionChange="onChange1_LevHier_edit" required="true">
+							<core:Item key="{modelDataLevel>ID}" text="{modelDataLevel>LEVEL}"/>
+						</ComboBox>
+						<ComboBox placeholder="Select Parent Level" id="IdParentLevelHierarchyedit"
+							items="{modelDataLevel>/results}" selectionChange="onChange2_levHier_edit" required="true">
+							<core:Item key="{modelDataLevel>ID}" text="{modelDataLevel>LEVEL}"/>
+						</ComboBox>	
+						<ComboBox placeholder="Select Soft Del" id="cboxlevelHeriSoftDel" items="{path: 'oModelSoft>/results'}" required="true">
+							<core:Item key="{oModelSoft>SOFT_DEL}" text="{oModelSoft>SOFT_DEL_DESC}"/>
+						</ComboBox>	
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button text="Save" type="Accept" icon="sap-icon://accept" press="onDialogSaveButtonLevHierEdit"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cancel" type="Reject" icon="sap-icon://sys-cancel" press="onDialogCancelButtonLevHierEdit"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

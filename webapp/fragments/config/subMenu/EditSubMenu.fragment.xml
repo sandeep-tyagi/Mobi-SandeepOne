@@ -1,0 +1,51 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="Edit Sub Menu" beforeClose="BClose_SubMenu_Edit" contentWidth="45%" afterClose="AClose_SubMenu_Edit">
+		<content>
+			<VBox>
+				<f:SimpleForm editable="true" layout="ResponsiveGridLayout" adjustLabelSpan="true" labelSpanL="2" labelSpanM="3">
+					<f:content>
+						<Label text="Sub Menu Id" visible="false"></Label>
+						<Input id="subMenulIdSubMenuEdit" value="{oModelEdit_SubMenu>/SUBMENU_ID}" visible="false"></Input>
+						<Label text="Sub Menu Name"></Label>
+						<!--	<Input id="subMenuNameSubMenuEdit" value="{oModelEdit_SubMenu>/SUB_MENU_NAME}"></Input>-->
+						<MaskInput id="subMenuNameSubMenuEdit" value="{oModelEdit_SubMenu>/SUB_MENU_NAME}" mask="CCCCCCCCCCCCCCCCCCCCCCCCC" placeholderSymbol=" "
+							placeholder="Sub Menu Name">
+							<rules>
+								<MaskInputRule maskFormatSymbol="C" regex="[a-zA-Z]"/>
+							</rules>
+						</MaskInput>
+						<Label text="Order Number"></Label>
+						<!--<Input id="subMenuOrderNoSubMenuEdit" value="{oModelEdit_SubMenu>/ORDER_NO}"></Input>-->
+						<MaskInput id="subMenuOrderNoSubMenuEdit" value="{oModelEdit_SubMenu>/ORDER_NO}" mask="CC" placeholderSymbol=" "
+							placeholder="Order Number">
+							<rules>
+								<MaskInputRule maskFormatSymbol="C" regex="[0-9]"/>
+							</rules>
+						</MaskInput>
+						<Label text="Key"></Label>
+						<!--	<Input id="subMenuKeySubMenuEdit" value="{oModelEdit_SubMenu>/KEY}"></Input>-->
+						<MaskInput id="subMenuKeySubMenuEdit" value="{oModelEdit_SubMenu>/KEY}" mask="CCCCCCCCCCCCCCCCCCCCCCCCC" placeholderSymbol=" "
+							placeholder="Enter Area Discription">
+							<rules>
+								<MaskInputRule maskFormatSymbol="C" regex="[a-zA-Z]"/>
+							</rules>
+						</MaskInput>
+						<Label text="Icon"></Label>
+							<Input id="subMenuIconSubMenuEdit" value="{oModelEdit_SubMenu>/ICON}"></Input>
+						<Label text="Status"></Label>
+						<ComboBox placeholder="Select Status" id="cboxStatusEditSubMenu" value="{oModelEdit_SubMenu>/SOFT_DEL_DESC}" items="{oModelSub_Menu>/items}"
+							selectionChange="onChangeStatusEditSubMenu" required="true">
+							<core:Item key="{oModelSub_Menu>SOFT_DEL}" text="{oModelSub_Menu>SOFT_DEL_DESC}"/>
+						</ComboBox>
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button text="Save" type="Accept" icon="sap-icon://accept" press="onDialogSaveButtonEditSubMenu"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cancel" type="Reject" icon="sap-icon://sys-cancel" press="onClose"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

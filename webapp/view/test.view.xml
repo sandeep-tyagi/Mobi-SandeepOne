@@ -1,0 +1,100 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="MOBI.controller.test"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:tnt="sap.tnt" xmlns:c="sap.suite.ui.microchart" xmlns:l="sap.ui.layout">
+	<App>
+		<pages>
+			<Page id="TilePage">
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Image src="/img/logo.png" width="90px" class="headerIcon"/>
+						</contentLeft>
+						<contentMiddle>
+							<Text text="Admin Dashboard" class="headerText"/>
+						</contentMiddle>
+						<contentRight class="headerIcon">
+							<OverflowToolbar id="otb3">
+								<!--<Label text="Welcome:"/>-->
+								<Button type="Transparent" id="UserCode" icon="sap-icon://account" text=""/>
+								<Button type="Transparent" id="UserName" icon="sap-icon://person-placeholder" text="">
+									<layoutData>
+										<OverflowToolbarLayoutData priority="AlwaysOverflow"/>
+									</layoutData>
+								</Button>
+								<Button type="Transparent" id="btnChange" icon="sap-icon://reset" text="Change Password" press="_OnchangePassword">
+									<layoutData>
+										<OverflowToolbarLayoutData priority="AlwaysOverflow"/>
+									</layoutData>
+								</Button>
+								<Button width="50px" id="__button0" icon="sap-icon://log" press="onPressLogout">
+									<layoutData>
+										<OverflowToolbarLayoutData priority="AlwaysOverflow"/>
+									</layoutData>
+								</Button>
+							</OverflowToolbar>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<Panel>
+						<headerToolbar>
+							<Toolbar height="3rem">
+								<Title text="Welcome"/>
+								<ToolbarSpacer/>
+							</Toolbar>
+						</headerToolbar>
+						<content>
+							<l:HorizontalLayout id="containerLayout" class="sapUiSmallMargin">
+								<VBox>
+									<SlideTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout">
+										<tiles>
+											<GenericTile backgroundImage="/img/n1.jpg" frameType="TwoByOne" class="bg" press="pressOnTileOne" visible="true">
+												<tileContent>
+													<TileContent></TileContent>
+												</tileContent>
+											</GenericTile>
+											<GenericTile backgroundImage="/img/pic3.jpg" frameType="TwoByOne" class="bg" press="pressOnTileOne" visible="true">
+												<tileContent>
+													<TileContent></TileContent>
+												</tileContent>
+											</GenericTile>
+											<GenericTile backgroundImage="/img/img07.jpg" frameType="TwoByOne" class="bg" press="pressOnTileOne" visible="true">
+												<tileContent>
+													<TileContent></TileContent>
+												</tileContent>
+											</GenericTile>
+											<GenericTile backgroundImage="/img/cliQ2.jpg" frameType="TwoByOne" class="bg" press="pressOnTileOne" visible="true">
+												<tileContent>
+													<TileContent>
+														<content></content>
+													</TileContent>
+												</tileContent>
+											</GenericTile>
+											<GenericTile backgroundImage="/img/CliqPoster1.jpg" frameType="TwoByOne" class="bg" press="pressOnTileOne" visible="true">
+												<tileContent>
+													<TileContent>
+														<content></content>
+													</TileContent>
+												</tileContent>
+											</GenericTile>
+										</tiles>
+									</SlideTile>
+								</VBox>
+							</l:HorizontalLayout>
+						</content>
+					</Panel>
+					<Panel width="auto" class="sapUiResponsiveMargin" id = "IdReportPanel">
+						<headerToolbar>
+							<Toolbar height="3rem">
+								<Title text="Report"/>
+								<ToolbarSpacer/>
+							</Toolbar>
+						</headerToolbar>
+					<!--	<content id = "IdReportContent">
+							
+						</content>-->
+					</Panel>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

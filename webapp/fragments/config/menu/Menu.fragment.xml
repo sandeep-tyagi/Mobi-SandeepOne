@@ -1,0 +1,62 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:v="sap.ui.comp"
+	xmlns:core="sap.ui.core">
+	<Page title="Menu">
+		<content >
+			<VBox class="sapUiSmallMargin">
+				<items>
+					<Table id = "IdTableMenu" items="{oModelMenu>/results}" growing="true" growingThreshold="30" growingScrollToLoad="true" growingDirection="Downwards">
+						<headerToolbar>
+							<Toolbar>
+								<Title text="Attribute" level="H3"/>
+								<ToolbarSpacer/>
+								<SearchField liveChange="OnPressMenuFilterNew" width="20%"/>
+								<!--<Button icon="sap-icon://filter" press="OnPressMenuFilter" type="Emphasized" tooltip="Filter"/>-->
+								<Button icon="sap-icon://refresh" press="onPressResetMenu" type="Emphasized" tooltip="Refresh"/>
+								<Button icon="sap-icon://add" press="onPressAddMenu" type="Emphasized" tooltip="Add New"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Menu Name"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Order Number"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Url"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Status"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Create Date"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Create By"/>
+							</Column>
+							<Column width="1em"/>
+							<Column width="1em"/>
+						</columns>
+						<items>
+							<ColumnListItem >
+								<cells>
+									<Text text="{oModelMenu>MENU_NAME}"/>
+									<Text text="{oModelMenu>ORDER_NO}"/>
+									<Text text="{oModelMenu>URL}"/>
+									<Text text="{oModelMenu>SOFT_DEL_DESC}"/>
+									<Text text="{oModelMenu>CREATE_DATE}"/>
+									<Text text="{oModelMenu>CREATE_BY}"/>
+									<core:Icon src="sap-icon://edit" press="onEditPressMenu"/>
+									<core:Icon src="sap-icon://delete" press="onDeletePressMenu"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</items>
+			</VBox>
+		</content>
+		<footer >
+			<Toolbar></Toolbar>
+		</footer>
+	</Page>
+</core:FragmentDefinition>

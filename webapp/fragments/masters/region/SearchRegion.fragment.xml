@@ -1,0 +1,39 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="Search Region" beforeClose="Close" contentWidth="30%">
+		<content>
+			<VBox>
+				<f:Form editable="true">
+					<f:layout>
+						<f:ResponsiveGridLayout/>
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement label="Country">
+									<f:fields>
+										<ComboBox placeholder="Select Country" id="cboxCountry1_RegionMaster" items="{oModelCountryFragment>/results}" required="true">
+											<core:Item key="{oModelCountryFragment>CountryCode}" text="{oModelCountryFragment>CountryName}"/>
+										</ComboBox>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Region">
+									<f:fields>
+										<ComboBox placeholder="Select Region" id="cboxRegion1_RegionMaster" items="{oModelRegionFragment>/results}" required="true">
+											<core:Item key="{oModelRegionFragment>RegionCode}" text="{oModelRegionFragment>RegionName}"/>
+										</ComboBox>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button text="Search" type="Accept" icon="sap-icon://accept" press="onPressSearchRegion"/>
+		</beginButton>
+		<endButton>
+			<Button text="Close" type="Reject" icon="sap-icon://decline" press="onClose"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

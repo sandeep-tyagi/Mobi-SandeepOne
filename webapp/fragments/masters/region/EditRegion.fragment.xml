@@ -1,0 +1,50 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="Edit Details" beforeClose="Close" contentWidth="30%">
+		<content>
+			<VBox>
+				<f:Form  editable="true">
+						<f:layout>
+							<f:ResponsiveGridLayout/>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+									<f:formElements>
+								<f:FormElement label="Region Code">
+									<f:fields>
+										<Input id="regionCodeRegionMasterEdit" value="{oModelEditRegionMaster>/RegionCode}" placeholder="Enter Region Code" 
+										 editable="false"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Region Name">
+									<f:fields>
+										<Input id="regionNameRegionMasterEdit" value="{oModelEditRegionMaster>/RegionName}" placeholder="Enter Region Name" 
+										required="true"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Country">
+									<f:fields>
+										<Input id="countryRegionMasterEdit" value="{oModelEditRegionMaster>/CountryCode}" placeholder="Enter Region Name" 
+										 editable="false"/>
+									</f:fields>
+								</f:FormElement>
+									<f:FormElement label="Status">
+										<f:fields>
+									<ComboBox placeholder="Select Status "  value="{oModelEditRegionMaster>/SOFT_DEL_DESC}" id="CountryCboxStatus" items="{RegionFragment>/items}" selectionChange="onChangeStatus" required="true">
+						    		 <core:Item key="{RegionFragment>SOFT_DEL}" text="{RegionFragment>SOFT_DEL_DESC}"/>
+						    			</ComboBox>
+										</f:fields>
+										</f:FormElement>
+							</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button text="Submit" type="Accept" icon="sap-icon://accept" press="onPressSubmitRegionMasterEdit"/>
+		</beginButton>
+		<endButton>
+			<Button text="Close" type="Reject" icon="sap-icon://decline" press="onClose"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,41 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="Add Level Hierarchy" beforeClose="Close" contentWidth="30%">
+		<content>
+			<VBox>
+				<f:Form editable="true">
+					<f:layout>
+						<f:ResponsiveGridLayout/>
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement label="Level">
+									<f:fields>
+										<ComboBox placeholder=" Enter Level " id="IdLevelHierarchy" items="{modelLevelFragment>/results}" selectionChange="onChangeLevLevelHierarchy"
+											required="true">
+											<core:Item key="{modelLevelFragment>ID}" text="{modelLevelFragment>LEVEL}"/>
+										</ComboBox>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Parent">
+									<f:fields>
+										<ComboBox placeholder="Enter Parent Level" id="IdParentLevelHierarchy" items="{modelLevelFragment>/results}"
+											selectionChange="onChangeParlevelHierarchy" required="true">
+											<core:Item key="{modelLevelFragment>ID}" text="{modelLevelFragment>LEVEL}"/>
+										</ComboBox>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button text="Submit" type="Accept" icon="sap-icon://accept" press="onPressSubmitLevelHier"/>
+		</beginButton>
+		<endButton>
+			<Button text="Close" type="Reject" icon="sap-icon://decline" press="onClose"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

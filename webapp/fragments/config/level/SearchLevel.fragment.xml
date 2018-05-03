@@ -1,0 +1,33 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="Search Level " beforeClose="Close" contentWidth="30%">
+		<content>
+			<VBox>
+					<f:Form editable="true" >
+						<f:layout>
+						<f:ResponsiveGridLayout/>
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement label="Level ">
+									<f:fields>
+										<ComboBox placeholder="Select Level " id="cboxLevel" items="{modelDataLevel>/results}"
+											selectionChange="onChangeLevelName" required="true">
+											<core:Item key="{modelDataLevel>ID}" text="{modelDataLevel>LEVEL}"/>
+										</ComboBox>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button text="Search" type="Accept" icon="sap-icon://accept" press="onPressSearchLevel"/>
+		</beginButton>
+		<endButton>
+			<Button text="Close" type="Reject" icon="sap-icon://decline" press="onClose"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

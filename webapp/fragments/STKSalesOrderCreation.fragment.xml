@@ -1,0 +1,116 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:v="sap.ui.comp"
+	xmlns:core="sap.ui.core">
+	<Page title="Sales Order Creation">
+<!--		<VBox class="sapUiSmallMargin">
+			<f:Form editable="true">
+				<f:layout>
+					<f:ResponsiveGridLayout/>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="Customers Name">
+								<f:fields>
+									<ComboBox placeholder="Select Partner Name" id="PartnerCode" items="{ChildModel>/results}" selectedKey="{HeaderData>/cust}" selectionChange="onChangePartner">
+										<core:Item key="{ChildModel>CustCode}" text="{ChildModel>CustName}"/>
+									</ComboBox>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="PO Number">
+								<f:fields>
+									<Input id="IdPoNumber" placeholder="Select PO Number" value="{HeaderData>/PO}"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="PO Date">
+								<f:fields>
+									<DatePicker width="100%" value="{HeaderData>/PODate}" secondaryCalendarType="Gregorian" id="IdPoDate" valueFormat="yyyy.MM.dd" placeholder="From Date"
+										displayFormat="long"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+		</VBox>-->
+		<VBox class="sapUiSmallMargin" justifyContent="Center">
+				<items>
+					<HBox width="100%" justifyContent="SpaceBetween">
+						<items>
+							<ObjectIdentifier title="" id="OrderNumberIdentifier"/>
+							<ObjectIdentifier title="Credit Limit" id="CreditLmtIdentifier"/>
+						</items>
+					</HBox>
+				</items>
+			</VBox>
+		<VBox>
+			<Table id = "idSalesOrders" items="{SalesOrders>/}">
+				<headerToolbar>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button class="buttonIcon" icon="sap-icon://add" text="Add New Row" press="addRow"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Material Code"/>
+					</Column>
+					<Column>
+						<Text text="Qty"/>
+					</Column>
+					<!--<Column>
+						<Text text="Required Dated"/>
+					</Column>-->
+					<Column>
+						<Text text="Unit Price"/>
+					</Column>
+				<!--	<Column>
+						<Text text="Discount"/>
+					</Column>
+					<Column>
+						<Text text="SGST"/>
+					</Column>
+					<Column>
+						<Text text="CGST"/>
+					</Column>
+					<Column>
+						<Text text="IGST"/>
+					</Column>-->
+					<Column >
+						<Text text="Total Amt"/>
+					</Column>
+					<Column width="2em"/>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+								<Text text="{SalesOrders>MaterialCode}"/>
+								<Text text="{SalesOrders>qty}"/>
+								<!--<Text text="{SalesOrders>required_date}" />-->
+								<Text text="{SalesOrders>Price}" />
+							<!--	<Text text="{SalesOrders>discount}" />
+								<Text text="{SalesOrders>sgst}" />
+								<Text text="{SalesOrders>cgst}" />
+								<Text text="{SalesOrders>Igst}" />-->
+								<Text text="{SalesOrders>total_amount}" />
+								<core:Icon src="sap-icon://delete" press="deleteRow" visible = "false"/>
+							
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</VBox>
+			<footer>
+			<Toolbar>
+				<content>
+					<ToolbarSpacer/>
+					<Text id = "IdLiveTotal"/>
+					<Button press="OnPressSubmit" type="Emphasized" text="Submit " ariaLabelledBy="actionButtonLabel"/>
+				</content>
+			</Toolbar>
+		</footer>
+	</Page>
+</core:FragmentDefinition>

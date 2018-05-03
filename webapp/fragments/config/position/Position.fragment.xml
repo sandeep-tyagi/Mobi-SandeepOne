@@ -1,0 +1,53 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:v="sap.ui.comp"
+	xmlns:core="sap.ui.core">
+	<Page  title="Position">
+		<content >
+			<VBox  class="sapUiSmallMargin">
+				<items>
+					<Table id = "IdTablePosition" items="{oModelPosition>/results}" growing="true" growingThreshold="30" growingScrollToLoad="true"
+						growingDirection="Downwards">
+							<headerToolbar>
+							<Toolbar>
+								<Title text="Position" level="H3"/>
+								<ToolbarSpacer/>
+								<SearchField liveChange="OnPressPositionFilterNew" width="20%"/>
+								<!--<Button icon="sap-icon://filter" press="OnPressPositionFilter" type="Emphasized" tooltip="Filter"/>-->
+								<Button icon="sap-icon://refresh" press="onPressResetPosition" type="Emphasized" tooltip="Refresh"/>
+								<Button icon="sap-icon://add" press="onPressAddPosition" type="Emphasized" tooltip="Add New"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Position Name"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Status"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Create Date"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Create By"/>
+							</Column>
+							<Column width="1em"/>
+							<Column width="1em"/>
+						</columns>
+						<items>
+							<ColumnListItem >
+								<cells>
+									<Text text="{oModelPosition>POSITION_NAME}"/>
+									<Text text="{oModelPosition>SOFT_DEL_DESC}"/>
+									<Text text="{oModelPosition>CREATE_DATE}"/>
+									<Text text="{oModelPosition>CREATE_BY}"/>
+									<core:Icon src="sap-icon://edit" press="onEditPressPosition"/>
+									<core:Icon src="sap-icon://delete" press="onDeletePressPosition"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</items>
+			</VBox>
+		</content>
+	
+	</Page>
+</core:FragmentDefinition>

@@ -1,0 +1,49 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:v="sap.ui.comp"
+	xmlns:core="sap.ui.core">
+	<Page title="Level">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<Table id = "IdTableLevel" items="{modelDataLevel>/results}" growing="true" growingThreshold="30" growingScrollToLoad="true" growingDirection="Downwards">
+					<headerToolbar>
+						<Toolbar>
+							<Title text="Level" level="H3"/>
+							<ToolbarSpacer/>
+							<SearchField liveChange="OnPressLevelFilterNew" width="20%"/>
+							<!--<Button icon="sap-icon://filter" press="OnPressLevelFilter" type="Emphasized" tooltip="Filter"/>-->
+							<Button icon="sap-icon://refresh" press="onPressResetLevel" type="Emphasized" tooltip="Refresh"/>
+							<Button icon="sap-icon://add" press="onPressAddLevel" type="Emphasized" tooltip="Add New"/>
+						</Toolbar>
+					</headerToolbar>
+					<columns>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Level"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Status"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Create Date"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Create By"/>
+						</Column>
+						<Column width="1em"/>
+						<Column width="1em"/>
+					</columns>
+					<items>
+						<ColumnListItem >
+							<cells>
+								<Text text="{modelDataLevel>LEVEL}"/>
+								<Text text="{modelDataLevel>SOFT_DEL_DESC}"/>
+								<Text text="{modelDataLevel>CREATE_DATE}"/>
+								<Text text="{modelDataLevel>CREATE_BY}"/>
+								<core:Icon src="sap-icon://edit" press="onEditPressLevel"/>
+								<core:Icon src="sap-icon://delete" press="onDeletePressLevel"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</VBox>
+		</content>
+	</Page>
+</core:FragmentDefinition>

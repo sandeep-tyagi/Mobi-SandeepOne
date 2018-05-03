@@ -1,0 +1,50 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="Add Area" beforeClose="Close" contentWidth="30%">
+		<content>
+			<VBox>
+				<f:Form editable="true">
+					<f:layout>
+						<f:ResponsiveGridLayout/>
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:formElements>
+									<f:FormElement label="Zone Code">
+										<f:fields>
+											<ComboBox placeholder="Select Zone" id="cboxZone_BranchMaster" items="{oModelZoneFragment>/results}" selectionChange="onChange" required="true">
+												<core:Item key="{oModelZoneFragment>ZoneCode}" text="{oModelZoneFragment>ZoneName}"/>
+											</ComboBox>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Branch Code">
+										<f:fields>
+										<MaskInput id="BranchCode_BranchMaster" value="" mask="CCCCC" placeholderSymbol=" " placeholder="Enter Branch Code">
+											<rules>
+												<MaskInputRule maskFormatSymbol="C" regex="[A-Z]"/>
+											</rules>
+										</MaskInput>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Branch Name">
+										<f:fields>
+										<MaskInput id="Branchname_BranchMaster" value="" mask="CCCCCCCCCCCCCCCCCCCCCCCCC" placeholderSymbol=" " placeholder="Enter Branch Name">
+											<rules>
+												<MaskInputRule maskFormatSymbol="C" regex="[a-zA-Z]"/>
+											</rules>
+										</MaskInput>
+										</f:fields>
+									</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button text="Submit" type="Accept" icon="sap-icon://accept" press="onPressSubmitBranch"/>
+		</beginButton>
+		<endButton>
+			<Button text="Close" type="Reject" icon="sap-icon://decline" press="onClose"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

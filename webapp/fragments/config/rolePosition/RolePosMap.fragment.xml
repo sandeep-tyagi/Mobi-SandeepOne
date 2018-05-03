@@ -1,0 +1,69 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form" xmlns:v="sap.ui.comp"
+	xmlns:core="sap.ui.core">
+	<Page title="Role Position Map">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<items>
+					<Table id="IdTableRolePosMap" items="{oModelMapRolePos>/results}" growing="true" growingThreshold="30" growingScrollToLoad="true"
+						growingDirection="Downwards">
+						<headerToolbar>
+							<Toolbar>
+								<Title text="Role Position Map" level="H3"/>
+								<ToolbarSpacer/>
+								<SearchField liveChange="onSearchRolePosMap" width="20%"/>
+								<!--<Button icon="sap-icon://filter" press="OnPressFilterRolePosMap" type="Emphasized" tooltip="Filter"/>-->
+								<Button icon="sap-icon://refresh" press="onPressRefreshRolePosMap" type="Emphasized" tooltip="Refresh"/>
+								<Button icon="sap-icon://add" press="onPressAddRolePosMap" type="Emphasized" tooltip="Add New"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Role Name"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Position Name"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Status"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Create Date"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Create By"/>
+							</Column>
+							<Column width="1em"/>
+							<Column width="1em"/>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{oModelMapRolePos>ROLE_NAME}"/>
+									<Text text="{oModelMapRolePos>POSITION_NAME}"/>
+									<Text text="{oModelMapRolePos>SOFT_DEL_DESC}"/>
+									<Text text="{path: 'oModelMapRolePos>CREATE_DATE'}"/>
+									<Text text="{oModelMapRolePos>CREATE_BY}"/>
+									<core:Icon src="sap-icon://edit" press="onEditPressRolePosMap"/>
+									<core:Icon src="sap-icon://delete" press="onDeletePressRolePosMap"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</items>
+			</VBox>
+		</content>
+		<footer >
+			<Toolbar>
+				<!--	<content>
+					<Button text="Download" id="dwnld_RoleLocMap2" icon="sap-icon://download" press="onPressDownloadRoleLoc" ariaLabelledBy="actionButtonLabel"
+						visible="true"/>
+					<Button text="Sample Download" id="create_RoleLoc" icon="sap-icon://download" press="onPressDownload" ariaLabelledBy="actionButtonLabel"
+						visible="true"/>
+					<Button text="Upload CSV" icon="sap-icon://upload" press="onPressUploadCSV"/>
+					<ToolbarSpacer/>
+					<Button press="onPressSubmit" type="Emphasized" ariaLabelledBy="actionButtonLabel" id="submitButton_1_RoleLoc" visible="false"/>
+				</content>-->
+			</Toolbar>
+		</footer>
+	</Page>
+</core:FragmentDefinition>

@@ -1,0 +1,474 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified"
+	xmlns:f="sap.ui.layout.form" xmlns:v="sap.ui.comp" controllerName="MOBI.controller.dbrInfo" xmlns:html="http://www.w3.org/1999/xhtml">
+	<NavContainer id="wizardNavContainer">
+		<App>
+			<pages>
+				<Page title="Welcome">
+					<content>
+						<Wizard id="CreateProductWizard" complete="wizardCompletedHandler">
+							<WizardStep id="Step1" title="Profile" activate="StepOneActivate" complete="StepOneComplete" validated="true">
+								<VBox class="sapUiSmallMargin" id="__vbox1">
+									<items>
+										<f:Form id="FormChange354" editable="true">
+											<f:layout>
+												<f:ResponsiveGridLayout/>
+											</f:layout>
+											<f:formContainers>
+												<f:FormContainer>
+													<f:formElements>
+														<f:FormElement label="DBR Form No.">
+															<Input id="input_countryname" value="" placeholder="DBR Form No." enabled="false" width="30%"/>
+														</f:FormElement>
+													</f:formElements>
+												</f:FormContainer>
+											</f:formContainers>
+										</f:Form>
+									</items>
+								</VBox>
+								<VBox class="sapUiSmallMargin">
+									<items>
+										<f:Form id="Form1" editable="true">
+											<f:layout>
+												<f:ResponsiveGridLayout/>
+											</f:layout>
+											<f:formContainers>
+												<f:FormContainer>
+													<f:formElements>
+														<f:FormElement label="Firm Evaluation Name">
+															<Input id="txtFirmEvaluationNameID" class="sapUiSmallMarginBottom" type="Text" placeholder="Enter Name ..."
+																valueStateText="Name must not be empty. Maximum 10 characters."
+																value="{ path : '/name', type : 'sap.ui.model.type.String', constraints : { minLength: 1, maxLength: 10 } }"/>
+														</f:FormElement>
+														<f:FormElement label="Nature of Premises">
+															<!--<Input id="input2" value="" required="true"/>-->
+															<Input id="PremisesID" class="sapUiSmallMarginBottom" type="Text" placeholder="Enter Nature of Premises ..."
+																valueStateText="Name must not be empty. Maximum 20 characters."
+																value="{ path : '/premisesId', type : 'sap.ui.model.type.String', constraints : { minLength: 1, maxLength: 20 } }"/>
+														</f:FormElement>
+														<f:FormElement label="Locality">
+															<!--	<Input id="input3" value="" required="true"/>-->
+															<Input id="LocalityID" class="sapUiSmallMarginBottom" type="Text" placeholder="Enter Locality Name ..."
+																valueStateText="Name must not be empty. Maximum 50 characters."
+																value="{ path : '/Locality', type : 'sap.ui.model.type.String', constraints : { minLength: 1, maxLength: 50 } }"/>
+														</f:FormElement>
+														<f:FormElement label="City/ District">
+															<!--<Input id="input4" value="" required="true"/>-->
+															<Input id="DistrictID" class="sapUiSmallMarginBottom" type="Text" placeholder="Enter City/ District Name ..."
+																valueStateText="Name must not be empty. Maximum 10 characters."
+																value="{ path : '/District', type : 'sap.ui.model.type.String', constraints : { minLength: 1, maxLength: 20 } }"/>
+														</f:FormElement>
+														<f:FormElement label="Postal Code">
+															<!--	<Input id="input5" value="" required="true"/>-->
+															<Input id="PostalCodeID" class="sapUiSmallMarginBottom" type="Text" placeholder="Enter Postal Code Name ..."
+																valueStateText="Name must not be empty. Maximum 10 characters."
+																value="{ path : '/Postal', type : 'sap.ui.model.type.Integer', constraints : { minLength: 1, maxLength: 10 } }"/>
+														</f:FormElement>
+														<f:FormElement label="Office Space">
+															<!--	<Input id="input6" value="" required="true"/>-->
+															<Input id="OfficeSpaceID" class="sapUiSmallMarginBottom" type="Text" placeholder="Enter Name ..."
+																valueStateText="Name must not be empty. Maximum 20 characters."
+																value="{ path : '/Office', type : 'sap.ui.model.type.String', constraints : { minLength: 1, maxLength: 20 } }"/>
+														</f:FormElement>
+														<f:FormElement label="Name of Contact Information">
+															<!--	<Input id="input7" value="" required="true"/>-->
+															<Input id="ContactInfoID" class="sapUiSmallMarginBottom" type="Text" placeholder="Enter Name of Contact Information ..."
+																valueStateText="Name must not be empty. Maximum 20 characters."
+																value="{ path : '/Contact', type : 'sap.ui.model.type.String', constraints : { minLength: 1, maxLength: 20 } }"/>
+														</f:FormElement>
+														<f:FormElement label="Designation of person">
+															<!--	<Input id="input8" value="" required="true"/>-->
+															<Input id="DesignationID" class="sapUiSmallMarginBottom" type="Text" placeholder="Enter Designation of person ..."
+																valueStateText="Name must not be empty. Maximum 20 characters."
+																value="{ path : '/Designation', type : 'sap.ui.model.type.String', constraints : { minLength: 1, maxLength: 20 } }"/>
+														</f:FormElement>
+														<f:FormElement label="Company profile">
+															<!--<Input id="input9" value="" required="true"/>-->
+															<Input id="CompanyprofileID" class="sapUiSmallMarginBottom" type="Text" placeholder="Enter Company profile Name ..."
+																valueStateText="Name must not be empty. Maximum 20 characters."
+																value="{ path : '/cmpProfile', type : 'sap.ui.model.type.String', constraints : { minLength: 1, maxLength: 20 } }"/>
+														</f:FormElement>
+													</f:formElements>
+												</f:FormContainer>
+											</f:formContainers>
+											<f:FormContainer>
+												<f:formElements>
+													<f:FormElement label="Nature">
+														<f:fields>
+															<ComboBox width="100%" valueStateText="Name must not be empty. Maximum 20 characters."
+																value="{ path : '/Nature', type : 'sap.ui.model.type.String', constraints : { minLength: 1, maxLength: 20 } }" id="NatureID"
+																selectionChange="onChange" items="{NatureData>/results}" required="true">
+																<core:Item key="{NatureData>NatureId}" text="{NatureData>NatureName}"/>
+															</ComboBox>
+														</f:fields>
+													</f:FormElement>
+													<f:FormElement label="Premises No.">
+														<!--	<Input id="PremisesNoID" value="" required="true"/>-->
+														<Input id="PremisesNoID" class="sapUiSmallMarginBottom" type="Text" placeholder="Enter Premises No ..."
+															valueStateText="Name must not be empty. Maximum 20 characters."
+															value="{ path : '/Premises', type : 'sap.ui.model.type.Integer', constraints : { minLength: 1, maxLength: 20 } }"/>
+													</f:FormElement>
+													<f:FormElement label="Town/Village No.">
+														<!--	<Input id="TownID" value="" required="true"/>-->
+														<Input id="TownID" class="sapUiSmallMarginBottom" type="Text" placeholder="Enter Town/Village Noe ..."
+															valueStateText="Name must not be empty. Maximum 20 characters."
+															value="{ path : '/Town', type : 'sap.ui.model.type.String', constraints : { minLength: 1, maxLength: 20 } }"/>
+													</f:FormElement>
+													<f:FormElement label="State">
+														<f:fields>
+															<ComboBox width="100%" id="StateID" valueStateText="Name must not be empty. Maximum 20 characters."
+																value="{ path : '/state', type : 'sap.ui.model.type.String', constraints : { minLength: 1, maxLength: 20 } }" selectionChange="onChange"
+																items="{StateData>/results}" required="true">
+																<core:Item key="{StateData>STATE_NAME}" text="{StateData>STATE_NAME}"/>
+															</ComboBox>
+														</f:fields>
+													</f:FormElement>
+													<f:FormElement label="Email ID.">
+														<!--	<Input id="EmailID" value="" enabled="false" required="true"/>-->
+														<Input id="EmailID" class="sapUiSmallMarginBottom" type="Text" placeholder="Enter Email ..."
+															valueStateText="Name must not be empty. Maximum 20 characters."
+															value="{ path : '/Email', type : 'sap.ui.model.type.String', constraints : { minLength: 1, maxLength: 20 } }"/>
+													</f:FormElement>
+													<f:FormElement label="Warehouse Space.">
+														<!--	<Input id="WarehouseID" value="" required="true"/>-->
+														<Input id="WarehouseID" class="sapUiSmallMarginBottom" type="Text" placeholder="Enter Warehouse Space ..."
+															valueStateText="Name must not be empty. Maximum 20 characters."
+															value="{ path : '/Warehouse', type : 'sap.ui.model.type.String', constraints : { minLength: 1, maxLength: 20 } }"/>
+													</f:FormElement>
+													<f:FormElement label="Contact Person's Mobile No.">
+														<!--<Input id="MobileID" value="" required="true"/>-->
+														<Input id="MobileID" class="sapUiSmallMarginBottom" type="Text" placeholder="Enter Contact Person's Mobile No ..."
+															valueStateText="Name must not be empty. Maximum 20 characters."
+															value="{ path : '/Mobile', type : 'sap.ui.model.type.Integer', constraints : { minLength: 1, maxLength: 20 } }"/>
+													</f:FormElement>
+													<f:FormElement label="CIN NO..">
+														<!--	<Input id="CINID" value="" required="true"/>-->
+														<Input id="CINID" class="sapUiSmallMarginBottom" type="Text" placeholder="Enter Company profile Name ..."
+															valueStateText="Name must not be empty. Maximum 20 characters."
+															value="{ path : '/CinId', type : 'sap.ui.model.type.String', constraints : { minLength: 1, maxLength: 20 } }"/>
+													</f:FormElement>
+												</f:formElements>
+											</f:FormContainer>
+										</f:Form>
+									</items>
+								</VBox>
+							</WizardStep>
+							<WizardStep id="Step2" activate="StepTwoActivate" complete="StepTwoComplete" validated="true" title="Legal Information">
+								<VBox class="sapUiSmallMargin" id="__vbox12">
+									<items>
+										<f:Form id="FormChange3541" editable="true">
+											<f:layout>
+												<f:ResponsiveGridLayout/>
+											</f:layout>
+											<f:formContainers>
+												<f:FormContainer>
+													<f:formElements>
+														<f:FormElement id="__element2" label=" PAN NO.">
+															<f:fields>
+																<MaskInput id="maskInput1" value="{ModelAreaEdit>/AREADISCRIPTTION}" mask="CCCCCCCCCCCCC" placeholderSymbol=" " placeholder="PAN NO.">
+																	<rules>
+																		<MaskInputRule maskFormatSymbol="C" regex="[A-Z0-9]"/>
+																	</rules>
+																</MaskInput>
+																<u:FileUploader id="fileUploader" name="myFileUpload" uploadUrl="" width="400px" tooltip="Upload your file to the local server"
+																	uploadComplete="handleUploadComplete" placeholder=" PAN NO.Attachement "/>
+																<Button text="Upload File" press="handleUploadPress" width="50%"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+													<f:formElements>
+														<f:FormElement id="__element3" label=" TAN NO.">
+															<f:fields>
+																<MaskInput id="maskInput2" value="{ModelAreaEdit>/AREADISCRIPTTION}" mask="CCCCCCCCCCCCCCCCCCCCCC" placeholderSymbol=" "
+																	placeholder="PAN NO.">
+																	<rules>
+																		<MaskInputRule maskFormatSymbol="C" regex="[A-Z0-9]"/>
+																	</rules>
+																</MaskInput>
+																<u:FileUploader id="fileUploader1" name="myFileUpload" uploadUrl="" width="400px" tooltip="Upload your file to the local server"
+																	uploadComplete="handleUploadComplete"/>
+																<Button text="Upload File" press="handleUploadPress"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+													<f:formElements>
+														<f:FormElement id="__element4" label=" GSTIN NO.">
+															<f:fields>
+																<MaskInput id="maskInput3" value="{ModelAreaEdit>/AREADISCRIPTTION}" mask="CCCCCCCCCCCCC" placeholderSymbol=" " placeholder="GSTIN NO.">
+																	<rules>
+																		<MaskInputRule maskFormatSymbol="C" regex="[A-Z0-9]"/>
+																	</rules>
+																</MaskInput>
+																<u:FileUploader id="fileUploader2" name="myFileUpload" uploadUrl="" width="400px" tooltip="Upload your file to the local server"
+																	uploadComplete="handleUploadComplete" placeholder=" GSTIN NO. "/>
+																<Button text="Upload File" press="handleUploadPress"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement id="__element5" label="BANK ACCOUNT NO.">
+															<f:fields>
+																<MaskInput id="maskInput4" value="{ModelAreaEdit>/AREADISCRIPTTION}" mask="CCCCCCCCCCCCC" placeholderSymbol=" "
+																	placeholder="Cancelled cheque attachment.">
+																	<rules>
+																		<MaskInputRule maskFormatSymbol="C" regex="[A-Z0-9]"/>
+																	</rules>
+																</MaskInput>
+																<u:FileUploader id="fileUploader3" name="myFileUpload" uploadUrl="" width="400px" tooltip="Upload your file to the local server"
+																	uploadComplete="handleUploadComplete"/>
+																<Button text="Upload File" press="handleUploadPress"/>
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement id="__element6" label=" IFSC Code.">
+															<f:fields>
+																<MaskInput id="maskInput5" value="{ModelAreaEdit>/AREADISCRIPTTION}" mask="CCCCCCCCCCCCC" placeholderSymbol=" " placeholder="">
+																	<rules>
+																		<MaskInputRule maskFormatSymbol="C" regex="[A-Z0-9]"/>
+																	</rules>
+																</MaskInput>
+																<!--<u:FileUploader id="fileUploader2" name="myFileUpload" uploadUrl="" width="400px" tooltip="Upload your file to the local server"
+																	uploadComplete="handleUploadComplete"/>
+																<Button text="Upload File" press="handleUploadPress"/>-->
+															</f:fields>
+														</f:FormElement>
+														<f:FormElement id="__element7" label=" MOA Of CO.">
+															<f:fields>
+																<!--<MaskInput id="maskInput7" value="{ModelAreaEdit>/AREADISCRIPTTION}" mask="CCCCCCCCCCCCC" placeholderSymbol=" "
+																	placeholder="">
+																	<rules>
+																		<MaskInputRule maskFormatSymbol="C" regex="[A-Z0-9]"/>
+																	</rules>
+																</MaskInput>-->
+																<u:FileUploader id="fileUploader4" name="myFileUpload" uploadUrl="" width="400px" tooltip="Upload your file to the local server"
+																	uploadComplete="handleUploadComplete" placeholder="Attachment.."/>
+																<Button text="Upload File" press="handleUploadPress"/>
+															</f:fields>
+														</f:FormElement>
+													</f:formElements>
+												</f:FormContainer>
+											</f:formContainers>
+										</f:Form>
+									</items>
+								</VBox>
+							</WizardStep>
+							<WizardStep id="Step3" activate="StepThreeActivate" complete="StepThreeComplete" validated="true" title="Current Business Profile">
+								<f:SimpleForm editable="true">
+									<Table id="ins" items="{/Products}">
+										<headerToolbar>
+											<Toolbar>
+												<Button icon="sap-icon://add" text="Add New Row" press="addRow"/>
+												<!--	<Button icon="sap-icon://display" text="Row" press="fetchRecords"/>-->
+											</Toolbar>
+										</headerToolbar>
+										<columns width="20em">
+											<Column/>
+											<Column>
+												<Text id="text2" text="Company's Name"/>
+											</Column>
+											<Column>
+												<Text id="text3" text="Associated From Date"/>
+											</Column>
+											<Column>
+												<Text id="text4" text="Industry Category"/>
+											</Column>
+											<Column>
+												<Text id="text6" text="Last 3Months Avg TurnOver."/>
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem>
+												<cells>
+													<Button icon="sap-icon://delete" press="deleteRow" type="Reject" width="20px"/>
+													<MaskInput value="{Company_Name}" mask="CCCCCCCCCCCCCCCCCCCCCCCCC" placeholderSymbol=" " placeholder="">
+														<rules>
+															<MaskInputRule maskFormatSymbol="C" regex="[a-zA-Z]"/>
+														</rules>
+													</MaskInput>
+													<Input value="{Associated_From_Date}" placeholder=" mm-dd-yyyy"></Input>
+													<MaskInput value="{Industry_category}" mask="CCCCCCCCCCCCCCCCCCCCCCCCC" placeholderSymbol="" placeholder="">
+														<rules>
+															<MaskInputRule maskFormatSymbol="C" regex="[a-zA-Z0-9]"/>
+														</rules>
+													</MaskInput>
+													<Input value="{TurnOver}" placeholder=" 00000" type="Number"/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</f:SimpleForm>
+							</WizardStep>
+							<WizardStep id="Step4" activate="StepFourActivate" complete="StepFourComplete" validated="true" title="Investment Details">
+								<f:SimpleForm editable="true">
+									<VBox class="sapUiSmallMargin" id="__vbox4">
+										<items>
+											<f:Form id="FormC" editable="true">
+												<f:layout>
+													<f:ResponsiveGridLayout/>
+												</f:layout>
+												<f:formContainers>
+													<f:FormContainer>
+														<f:formElements>
+															<f:FormElement label="Current Investment.">
+																<Input id="inpInvest1" class="sapUiSmallMarginBottom" type="Text" placeholder="Enter Company profile Name ..."
+																	valueStateText="Name must not be empty. Maximum 20 characters."
+																	value="{ path : '/curntInvestmnt', type : 'sap.ui.model.type.String', constraints : { minLength: 1, maxLength: 20 } }"/>
+																<!--<Input id="inpInvest1" value="{CountryName>/COUNTRYNAME}" required="true" placeholder="INR"/>-->
+															</f:FormElement>
+														</f:formElements>
+														<f:formElements>
+															<f:FormElement label="Bank Loan.">
+																<!--	<Input id="inpInvest2" value="{CountryName>/COUNTRYNAME}" required="true" placeholder="INR"/>-->
+																<Input id="inpInvest2" class="sapUiSmallMarginBottom" type="Text" placeholder="Enter Company profile Name ..."
+																	valueStateText="Name must not be empty. Maximum 20 characters."
+																	value="{ path : '/bankLoan', type : 'sap.ui.model.type.String', constraints : { minLength: 1, maxLength: 20 } }"/>
+															</f:FormElement>
+														</f:formElements>
+														<f:formElements>
+															<f:FormElement label="Bank Limit.">
+																<!--	<Input id="inpInvest3" value="{CountryName>/COUNTRYNAME}" required="true" placeholder="INR"/>-->
+																<Input id="inpInvest3" class="sapUiSmallMarginBottom" type="Text" placeholder="Enter Company profile Name ..."
+																	valueStateText="Name must not be empty. Maximum 20 characters."
+																	value="{ path : '/bankLimit', type : 'sap.ui.model.type.Integer', constraints : { minLength: 1, maxLength: 20 } }"/>
+															</f:FormElement>
+														</f:formElements>
+														<f:formElements>
+															<f:FormElement label="Current Account No..">
+																<!--	<Input id="inpInvest4" value="{CountryName>/COUNTRYNAME}" required="true" type="Number" placeholder=""/>-->
+																<Input id="inpInvest4" class="sapUiSmallMarginBottom" type="Text" placeholder="Enter Company profile Name ..."
+																	valueStateText="Name must not be empty. Maximum 20 characters."
+																	value="{ path : '/curntAccount', type : 'sap.ui.model.type.Integer', constraints : { minLength: 1, maxLength: 20 } }"/>
+															</f:FormElement>
+														</f:formElements>
+													</f:FormContainer>
+												</f:formContainers>
+												<f:formContainers>
+													<f:FormContainer>
+														<f:formElements>
+															<f:FormElement label="Financial Statement Last 3yrs.">
+																<!--	<Input id="inpInvest11" value="{CountryName>/COUNTRYNAME}" required="true"/>-->
+																<Input id="inpInvest11" class="sapUiSmallMarginBottom" type="Text" placeholder="Enter Company profile Name ..."
+																	valueStateText="Name must not be empty. Maximum 20 characters."
+																	value="{ path : '/financial', type : 'sap.ui.model.type.String', constraints : { minLength: 1, maxLength: 20 } }"/>
+															</f:FormElement>
+														</f:formElements>
+														<f:formElements>
+															<f:FormElement label="Income Tax Return.">
+																<!--	<Input id="inpInvest21" value="{CountryName>/COUNTRYNAME}" required="true"/>-->
+																<Input id="inpInvest21" class="sapUiSmallMarginBottom" type="Text" placeholder="Enter Company profile Name ..."
+																	valueStateText="Name must not be empty. Maximum 20 characters."
+																	value="{ path : '/income', type : 'sap.ui.model.type.Integer', constraints : { minLength: 1, maxLength: 20 } }"/>
+															</f:FormElement>
+														</f:formElements>
+													</f:FormContainer>
+												</f:formContainers>
+											</f:Form>
+										</items>
+									</VBox>
+									<VBox class="sapUiSmallMargin" id="__vbox522">
+										<items>
+											<f:Form id="FormC12" editable="true">
+												<f:layout>
+													<f:ResponsiveGridLayout/>
+												</f:layout>
+												<f:formContainers>
+													<f:FormContainer>
+														<f:formElements>
+															<f:FormElement label="Bank .">
+																<MaskInput id="bankInvst" valueStateText="Name must not be empty. Maximum 20 characters."
+																	value="{ path : '/bank', type : 'sap.ui.model.type.Integer', constraints : { minLength: 1, maxLength: 20 } }"
+																	mask="CCCCCCCCCCCCCCCCCCCCCCCCC" placeholderSymbol="" placeholder="">
+																	<rules>
+																		<MaskInputRule maskFormatSymbol="C" regex="[a-zA-Z]"/>
+																	</rules>
+																</MaskInput>
+															</f:FormElement>
+														</f:formElements>
+													</f:FormContainer>
+												</f:formContainers>
+												<f:formContainers>
+													<f:FormContainer>
+														<f:formElements>
+															<f:FormElement label="Last 6month Bank Statement..">
+																<!--<MaskInput value="{bank}" mask="CCCCCCCCCCCCCCCCCCCCCCCCC" placeholderSymbol="" placeholder="">
+																	<rules>
+																		<MaskInputRule maskFormatSymbol="C" regex="[a-zA-Z]"/>
+																	</rules>
+																</MaskInput>-->
+																<u:FileUploader id="fileUploader0" name="myFileUpload" uploadUrl="" width="400px" tooltip="Upload your file to the local server"
+																	valueStateText="Name must not be empty. Maximum 20 characters."
+																	value="{ path : '/lstbank', type : 'sap.ui.model.type.Integer', constraints : { minLength: 1, maxLength: 20 } }"
+																	uploadComplete="handleUploadComplete" placeholder="Attachment"/>
+																<Button text="Upload File" press="handleUploadPress"/>
+															</f:FormElement>
+														</f:formElements>
+													</f:FormContainer>
+												</f:formContainers>
+											</f:Form>
+										</items>
+									</VBox>
+								</f:SimpleForm>
+							</WizardStep>
+							<WizardStep id="Step5" activate="StepFiveActivate" complete="StepFiveComplete" validated="true" title="FOS Details">
+								<f:SimpleForm editable="true">
+									<Table id="iFos" items="{/Fos}">
+										<headerToolbar>
+											<Toolbar>
+												<Button icon="sap-icon://add" text="Add New Row" press="addRow1"/>
+												<!--	<Button icon="sap-icon://display" text="Row" press="fetchRecords"/>-->
+											</Toolbar>
+										</headerToolbar>
+										<columns width="20em">
+											<Column/>
+											<Column>
+												<Text id="textFos" text=" Name"/>
+											</Column>
+											<Column>
+												<Text id="textFos1" text="Id Proof"/>
+											</Column>
+											<Column>
+												<Text id="textFos2" text="Bank Account No."/>
+											</Column>
+											<Column>
+												<Text id="textFos3" text="Ifsc Code."/>
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem>
+												<cells>
+													<Button icon="sap-icon://delete" press="deleteRow1" type="Reject" width="20px"/>
+													<MaskInput value="{Name}" mask="CCCCCCCCCCCCCCCCCCCCCCCCC" placeholderSymbol=" " placeholder="">
+														<rules>
+															<MaskInputRule maskFormatSymbol="C" regex="[a-zA-Z]"/>
+														</rules>
+													</MaskInput>
+													<MaskInput value="{Id_Proof}" mask="CCCCCCCCCCCCCCCCCCCCCCCCC" placeholderSymbol=" " placeholder="">
+														<rules>
+															<MaskInputRule maskFormatSymbol="C" regex="[a-zA-Z]"/>
+														</rules>
+													</MaskInput>
+													<Input value="{Banl_Account}" placeholder=" 00000" type="Number"/>
+													<MaskInput value="{Ifsc_Code}" mask="CCCCCCCCCCCCCCCCCCCCCCCCC" placeholderSymbol=" " placeholder="">
+														<rules>
+															<MaskInputRule maskFormatSymbol="C" regex="[a-zA-Z0-9]"/>
+														</rules>
+													</MaskInput>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</f:SimpleForm>
+							</WizardStep>
+							<WizardStep id="Step6" activate="StepSixActivate" complete="StepSixComplete" validated="true" title="Agreement">
+								<f:SimpleForm editable="true">
+									<Label text="agreement"/>
+									<Input value="{val}" enabled="false"/>
+									<Label text=" VAT is included"/>
+									<CheckBox selected="{/productVAT}"/>
+									<Button text="Submit" icon="sap-icon://submit" press="onPressSubmit"/>
+								</f:SimpleForm>
+							</WizardStep>
+						</Wizard>
+						<VBox></VBox>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</NavContainer>
+</mvc:View>
